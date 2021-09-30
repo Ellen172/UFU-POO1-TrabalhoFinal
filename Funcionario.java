@@ -14,20 +14,35 @@ public class Funcionario {
     public String getNome_func() {
         return nome_func;
     }
-    public void setNome_func(String nome_func) {
-        this.nome_func = nome_func;
+    public boolean setNome_func(String nome_func) {
+        if(nome_func.length()>0){
+            this.nome_func = nome_func;
+            return true;
+        } else {
+            return false;
+        }
     }
     public String getCpf_func() {
         return cpf_func;
     }
-    public void setCpf_func(String cpf_func) {
-        this.cpf_func = cpf_func;
+    public boolean setCpf_func(String cpf_func) {
+        if(cpf_func.length()>0){
+            this.cpf_func = cpf_func;
+            return true;
+        } else {
+            return false;
+        }
     }
     public String getRg_func() {
         return rg_func;
     }
-    public void setRg_func(String rg_func) {
-        this.rg_func = rg_func;
+    public boolean setRg_func(String rg_func) {
+        if(rg_func.length()>0){
+            this.rg_func = rg_func;
+            return true;
+        } else {
+            return false;
+        }
     }
     public boolean getEst_Civ() {
         return est_civ;
@@ -38,31 +53,51 @@ public class Funcionario {
     public Date getDat_adm() {
         return dat_adm;
     }
-    public void setDat_adm(date dat_adm) {
+    public void setDat_adm(Date dat_adm) {
         this.dat_adm = dat_adm;
     }
     public String getCtps() {
         return ctps;
     }
-    public void setCtps(String ctps) {
-        this.ctps = ctps;
+    public boolean setCtps(String ctps) {
+        if(ctps.length()>0){
+            this.ctps = ctps;
+            return true;
+        } else {
+            return false;
+        }
     }
     public String getLogin() {
         return login;
     }
-    public void setLogin(String login) {
-        this.login = login;
+    public boolean setLogin(String login) {
+        if(login.length()>0){
+            this.login = login;
+            return true;
+        } else {
+            return false;
+        }
     }
     public String getSenha() {
         return senha;
     }
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public boolean setSenha(String senha) {
+        if(senha.length()>0){
+            this.senha = senha;
+            return true;
+        } else {
+            return false;
+        }
     }
     public int getTotal_cons() {
         return total_cons;
     }
-    public void setTotal_cons(int total_cons) {
-        this.total_cons = total_cons;
+    public boolean setTotal_cons(int total_cons) {
+        if(total_const>0){
+            this.total_cons = total_cons;
+            return true;
+        } else {
+            return false;
+        }
     }
 }

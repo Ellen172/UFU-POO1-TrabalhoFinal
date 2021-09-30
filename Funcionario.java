@@ -1,9 +1,11 @@
+import java.util.Date;
+
 public class Funcionario {
     private String nome_func;
     private String cpf_func;
     private String rg_func;
     private boolean est_civ;
-    private date dat_adm;
+    private Date dat_adm;
     private String ctps;
     private String login;
     private String senha;
@@ -35,10 +37,10 @@ public class Funcionario {
     public void setEst_civ(boolean est_civ) {
         this.est_civ = est_civ;
     }
-    public date getDat_adm() {
+    public Date getDat_adm() {
         return dat_adm;
     }
-    public void setDat_adm(date dat_adm) {
+    public void setDat_adm(Date dat_adm) {
         this.dat_adm = dat_adm;
     }
     public String getCtps() {

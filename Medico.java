@@ -59,10 +59,10 @@ public class Medico extends Funcionario {
         }
     }
     public Plano[] getPlanos() {
-        return p;
+        return this.planos;
     }
     public void setPlanos(Plano p[]) {
-        this.p = p;
+        this.planos = p;
     }
 
 }

@@ -1,5 +1,3 @@
-package Trabalho2;
-
 public class Exame extends Consulta{
 
     private String nome_exame;

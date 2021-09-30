@@ -70,7 +70,7 @@ public class Funcionario {
         } else if(est_civ == 2){
             return "Divorciado";
         } else {
-            return NULL;
+            return "";
         }
     }
     public void setEst_civ(byte est_civ) {

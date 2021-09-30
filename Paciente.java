@@ -4,7 +4,7 @@ public class Paciente{
     private String nome_pac;
     private String cpf_pac;
     private String rg_pac;
-    private String est_civ;
+    private Byte est_civ;
     private String sexo;
     private Date dat_nas;
     private Date dat_cad;
@@ -67,16 +67,20 @@ public class Paciente{
     }
 
     public String getEst_civ() {
-        return est_civ;
+        if(est_civ == 0){
+            return "Solteiro";
+        } else if(est_civ == 1){
+            return "Casado";
+        } else if(est_civ == 2){
+            return "Divorciado";
+        } else {
+            return "";
+        }
     }
 
-    public boolean setEst_civ(String est_civ) {
-        if(est_civ.length() > 0){
-            this.est_civ = est_civ;
-            return true;
-        }else{
-            return false;
-        }
+    public void setEst_civ(Byte est_civ) {
+        this.est_civ = est_civ;
+         
     }
 
     public String getSexo() {
@@ -98,6 +102,17 @@ public class Paciente{
 
     public void setUlt_cons(Date ult_cons) {
         this.ult_cons = ult_cons;
+    }
+
+    public Paciente(String nome_pac, String cpf_pac, String rg_pac, Byte est_civ, String sexo, Date dat_nas, Date ult_cons){
+        this.dat_cad = new Date();
+        setCpf_pac(cpf_pac);
+        setDat_nas(dat_nas);
+        setEst_civ(est_civ);
+        setNome_pac(nome_pac);
+        setRg_pac(rg_pac);
+        setSexo(sexo);
+        setUlt_cons(ult_cons);
     }
 
 }

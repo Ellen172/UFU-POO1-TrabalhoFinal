@@ -62,13 +62,18 @@ public class Funcionario {
             return false;
         }
     }
-    public byte getEst_Civ() {
-        return est_civ;
+    public String getEst_Civ() {
+        if(est_civ == 0){
+            return "Solteiro";
+        } else if(est_civ == 1){
+            return "Casado";
+        } else if(est_civ == 2){
+            return "Divorciado";
+        } else {
+            return NULL;
+        }
     }
     public void setEst_civ(byte est_civ) {
-        // 0 - solteiro
-        // 1 - casado
-        // 2 - divorciado
         this.est_civ = est_civ;
     }
     public Date getDat_adm() {

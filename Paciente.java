@@ -29,7 +29,7 @@ public class Paciente{
     }
 
     public boolean setCpf_pac(String cpf_pac) {
-        if(cpf_pac.length() > 0){
+        if(ValidaCpf.isCPF(cpf_pac) == true){
             this.cpf_pac = cpf_pac;
             return true;
         }else{

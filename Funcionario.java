@@ -44,7 +44,7 @@ public class Funcionario {
         return cpf_func;
     }
     public boolean setCpf_func(String cpf_func) {
-        if(cpf_func.length()>0){
+        if(ValidaCpf.isCPF(cpf_func) == true){
             this.cpf_func = cpf_func;
             return true;
         } else {

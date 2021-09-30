@@ -26,7 +26,7 @@ public class Funcionario {
         return cpf_func;
     }
     public boolean setCpf_func(String cpf_func) {
-        if(cpf_func.length()>0){
+        if(ValidaCpf.isCPF(cpf_func) == true){
             this.cpf_func = cpf_func;
             return true;
         } else {
@@ -93,7 +93,7 @@ public class Funcionario {
         return total_cons;
     }
     public boolean setTotal_cons(int total_cons) {
-        if(total_const>0){
+        if(total_cons>0){
             this.total_cons = total_cons;
             return true;
         } else {

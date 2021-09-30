@@ -4,7 +4,7 @@ public class Funcionario {
     private String nome_func;
     private String cpf_func;
     private String rg_func;
-    private boolean est_civ;
+    private byte est_civ;
     private Date dat_adm;
     private String ctps;
     private String login;
@@ -44,10 +44,13 @@ public class Funcionario {
             return false;
         }
     }
-    public boolean getEst_Civ() {
+    public byte getEst_Civ() {
         return est_civ;
     }
-    public void setEst_civ(boolean est_civ) {
+    public void setEst_civ(byte est_civ) {
+        // 0 - solteiro
+        // 1 - casado
+        // 2 - divorciado
         this.est_civ = est_civ;
     }
     public Date getDat_adm() {
@@ -93,7 +96,7 @@ public class Funcionario {
         return total_cons;
     }
     public boolean setTotal_cons(int total_cons) {
-        if(total_const>0){
+        if(total_cons>0){
             this.total_cons = total_cons;
             return true;
         } else {

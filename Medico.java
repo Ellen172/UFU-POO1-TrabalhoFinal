@@ -41,7 +41,7 @@ public class Medico {
     public int getNro_cons() {
         return nro_cons;
     }
-    public void setNro_cons(int nro_cons) {
+    public boolean setNro_cons(int nro_cons) {
         if(nro_cons>0){
             this.nro_cons = nro_cons;
             return true;

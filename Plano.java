@@ -5,13 +5,23 @@ public class Plano {
     public String getNome_plano() {
         return nome_plano;
     }
-    public void setNome_plano(String nome_plano) {
-        this.nome_plano = nome_plano;
+    public boolean setNome_plano(String nome_plano) {
+        if(nome_plano.length()>0){
+            this.nome_plano = nome_plano;
+            return true;
+        } else {
+            return false;
+        }
     }
     public String getCnpj() {
         return cnpj;
     }
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public boolean setCnpj(String cnpj) {
+        if(cnpj.length()>0){
+            this.cnpj = cnpj;
+            return true;
+        } else {
+            return false;
+        }
     }
 }

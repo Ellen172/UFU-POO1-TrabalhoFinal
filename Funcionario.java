@@ -11,8 +11,6 @@ public class Funcionario {
     private String senha;
     private int total_cons;
 
-    
-
     public String getNome_func() {
         return nome_func;
     }

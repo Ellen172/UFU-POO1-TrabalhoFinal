@@ -7,27 +7,48 @@ public class Medico {
     public String getCrm() {
         return crm;
     }
-    public void setCrm(String crm) {
-        this.crm = crm;
+    public boolean setCrm(String crm) {
+        if(crm.length()>0){
+            this.crm = crm;
+            return true;
+        } else {
+            return false;
+        }
     }
     public String getEspecialidades() {
         return especialidades;
     }
-    public void setEspecialidades(String especialidades) {
-        this.especialidades = especialidades;
+    public boolean setEspecialidades(String especialidades) {
+        if(especialidades.length()>0){
+            this.especialidades = especialidades;
+            return true;
+        } else {
+            return false;
+        }
     }
     public double getSal_mensal() {
         return sal_mensal;
     }
-    public void setSal_mensal(double sal_mensal) {
-        this.sal_mensal = sal_mensal;
+    public boolean setSal_mensal(double sal_mensal) {
+        if(sal_mensal>0){
+            this.sal_mensal = sal_mensal;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     public int getNro_cons() {
         return nro_cons;
     }
     public void setNro_cons(int nro_cons) {
-        if(nro_cons<0) this.nro_cons = 0;
-        this.nro_cons = nro_cons;
+        if(nro_cons>0){
+            this.nro_cons = nro_cons;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     

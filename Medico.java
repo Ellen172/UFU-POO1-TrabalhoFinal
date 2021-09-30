@@ -1,10 +1,16 @@
-public class Medico {
+public class Medico extends Funcionario {
     private String crm;
     private String especialidades;
     private double sal_mensal;
     private int nro_cons;
+    private Plano planos[];
 
     Medico(){}
+    
+    Medico(String c, Plano p[]){
+        super(c);
+        setPlanos(p);
+    }
 
     public String getCrm() {
         return crm;
@@ -52,9 +58,11 @@ public class Medico {
             return false;
         }
     }
-    
-    
-    
+    public Plano[] getPlanos() {
+        return p;
+    }
+    public void setPlanos(Plano p[]) {
+        this.p = p;
+    }
 
-    
 }

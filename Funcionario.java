@@ -11,6 +11,12 @@ public class Funcionario {
     private String senha;
     private int total_cons;
 
+    Funcionario(){}
+
+    Funcionario(String c){
+        setCpf_func(c);
+    }
+
     Funcionario(String n, String cp, String rg, byte ec, Date d, String ct, String l, String s, int tc){
         setNome_func(n);
         setCpf_func(cp);

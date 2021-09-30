@@ -4,6 +4,8 @@ public class Medico {
     private double sal_mensal;
     private int nro_cons;
 
+    Medico(){}
+
     public String getCrm() {
         return crm;
     }

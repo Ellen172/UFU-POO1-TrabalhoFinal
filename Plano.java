@@ -2,6 +2,11 @@ public class Plano {
     private String nome_plano;
     private String cnpj;
 
+    Plano(String n, String c){
+        setNome_plano(n);
+        setCnpj(c);
+    }
+
     public String getNome_plano() {
         return nome_plano;
     }

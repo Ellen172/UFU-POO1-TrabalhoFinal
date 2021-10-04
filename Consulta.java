@@ -9,6 +9,13 @@ public class Consulta {
     private String receita;
     private double val_cons;
 
+    public Consulta(Class Medico, Class Paciente){
+        
+    }
+
+    public Consulta(String nome_exame) {
+        
+    }
 
     public Date getData() {
         return data;

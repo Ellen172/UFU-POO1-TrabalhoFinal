@@ -4,6 +4,12 @@ public class Outro_funcionario extends Funcionario{
     private double sal_fixo;
     private double gratificacao;
 
+    public Outro_funcionario(String cargo, double sal_fixo, double gratificacao){
+        this.cargo = cargo;
+        this.sal_fixo = sal_fixo;
+        this.gratificacao = gratificacao;
+    }
+    
     public String getCargo() {
         return cargo;
     }

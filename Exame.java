@@ -2,6 +2,10 @@ public class Exame extends Consulta{
 
     private String nome_exame;
 
+    public Exame(String nome_exame) {
+        super(nome_exame);
+    }
+    
     public String getNome_exame() {
         return nome_exame;
     }

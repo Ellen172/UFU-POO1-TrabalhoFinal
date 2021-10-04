@@ -7,6 +7,15 @@ public class Endereco {
     private String cidade;
     private String cep;
 
+    public Endereco(String rua, int numero, String bairro, String comp, String cidade, String cep){
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.comp = comp;
+        this.cidade = cidade;
+        this.cep = cep;
+    }
+  
     public String getRua() {
         return rua;
     }

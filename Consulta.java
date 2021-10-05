@@ -123,5 +123,16 @@ public class Consulta {
         func.setTotal_cons(func.getTotal_cons() + 1);
         pac.setUlt_cons(formatarData.format(data));
     }
+
+    public void mostrarDados(){
+        System.out.println("=============================");
+        System.out.println("Data: " + this.getData());
+        System.out.println("Horario: " + this.getHorario());
+        System.out.println("Medicamento: " + this.getMedicamento());
+        System.out.println("Observação Geral: " + this.getObs_geral());
+        System.out.println("Receita: " + this.getReceita());
+        System.out.println("Valor: " + this.getVal_cons());
+        System.out.println("=============================");
+    }
 }
 

@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 
 public class Consulta {
 
-    private Date data;
+    private String data;
     private String horario;
     private String medicamento;
     private String obs_geral;
@@ -14,7 +14,7 @@ public class Consulta {
         
     }
 
-    public Consulta(Medico m, Paciente p, Date d, String h, String med, String obs, String r, double val){
+    public Consulta(Medico m, Paciente p, String d, String h, String med, String obs, String r, double val){
         setData(d);
         setHorario(h);
         setMedicamento(med);
@@ -27,11 +27,11 @@ public class Consulta {
         
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data){
+    public void setData(String data){
         this.data = data;
     }
 

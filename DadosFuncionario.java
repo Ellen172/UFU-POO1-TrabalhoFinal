@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
 public class DadosFuncionario {
     private ArrayList<Funcionario> vetFunc = new ArrayList<Funcionario>();
 

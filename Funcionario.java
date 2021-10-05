@@ -31,6 +31,16 @@ public abstract class  Funcionario {
 
     public abstract void cadastro(String s); // cadastro do login e senha, para medicos login será crm, para outro_funcionario o cpf
 
+    public void mostrarDados(){
+        System.out.println("Nome: " + getNome_func());
+        System.out.println("Cpf: " + getCpf_func());
+        System.out.println("Rg: " + getRg_func());
+        System.out.println("Estado Civil: " + getEst_Civ());
+        System.out.println("Ctps: " + getCtps());
+        System.out.println("Data de Admissão: " + getDat_adm());
+
+    }
+
     public String getNome_func() {
         return nome_func;
     }

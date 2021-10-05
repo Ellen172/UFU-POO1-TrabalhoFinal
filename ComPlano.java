@@ -35,7 +35,7 @@ public class ComPlano extends Paciente {
     }
 
     public ComPlano(String nome_pac, String cpf_pac, String rg_pac, Byte est_civ, String sexo, Date dat_nas,
-            Date ult_cons, String nro_cart, Date data_ing, boolean per_carencia) {
+            String ult_cons, String nro_cart, Date data_ing, boolean per_carencia) {
         super(nome_pac, cpf_pac, rg_pac, est_civ, sexo, dat_nas, ult_cons);
         setNro_cart(nro_cart);
         setData_ing(data_ing);

@@ -27,7 +27,7 @@ public class SemPlano extends Paciente{
     }
 
     public SemPlano(String nome_pac, String cpf_pac, String rg_pac, Byte est_civ, String sexo, Date dat_nas,
-            Date ult_cons, boolean desc_esp, double val_pago) {
+            String ult_cons, boolean desc_esp, double val_pago) {
         super(nome_pac, cpf_pac, rg_pac, est_civ, sexo, dat_nas, ult_cons);
         setDesc_esp(desc_esp);
         setVal_pago(val_pago);

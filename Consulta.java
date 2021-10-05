@@ -106,7 +106,7 @@ public class Consulta {
         }
     }
 
-    public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons, Medico med, Outro_funcionario func){
+    public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons, Medico med, Outro_funcionario func, Paciente pac){
         Date data = new Date();
         SimpleDateFormat formatarHora = new SimpleDateFormat("HH/mm/ss");
         SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
@@ -120,6 +120,7 @@ public class Consulta {
 
         med.incrementaNroCons();
         func.setTotal_cons(func.getTotal_cons() + 1);
+        pac.setUlt_cons(formatarData.format(data));
     }
 }
 

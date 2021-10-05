@@ -8,7 +8,7 @@ public class Paciente{
     private String sexo;
     private Date dat_nas;
     private Date dat_cad;
-    private Date ult_cons;
+    private String ult_cons;
     
     public String getNome_pac() {
         return nome_pac;
@@ -96,15 +96,15 @@ public class Paciente{
         }
     }
 
-    public Date getUlt_cons() {
+    public String getUlt_cons() {
         return ult_cons;
     }
 
-    public void setUlt_cons(Date ult_cons) {
+    public void setUlt_cons(String ult_cons) {
         this.ult_cons = ult_cons;
     }
 
-    public Paciente(String nome_pac, String cpf_pac, String rg_pac, Byte est_civ, String sexo, Date dat_nas, Date ult_cons){
+    public Paciente(String nome_pac, String cpf_pac, String rg_pac, Byte est_civ, String sexo, Date dat_nas, String ult_cons){
         this.dat_cad = new Date();
         setCpf_pac(cpf_pac);
         setDat_nas(dat_nas);

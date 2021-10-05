@@ -69,5 +69,9 @@ public class Outro_funcionario extends Funcionario{
             sal_fixo += gratificacao;
         }
     }
+    public void cadastro(String s){
+        setLogin(getCpf_func());
+        setSenha(s);
+    }
 
 }

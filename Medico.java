@@ -13,6 +13,11 @@ public class Medico extends Funcionario {
         setPlanos(p);
     }
 
+    public void cadastro(String s){
+        setLogin(crm);
+        setSenha(s);
+    }
+
     public void calculaSalario(){
         sal_mensal += somaConsultaMes;
     }

@@ -17,18 +17,19 @@ public abstract class  Funcionario {
         setCpf_func(c);
     }
 
-    Funcionario(String n, String cp, String rg, byte ec, Date d, String ct, String l, String s){
+    Funcionario(String n, String cp, String rg, byte ec, Date d, String ct, String s){
         setNome_func(n);
         setCpf_func(cp);
         setRg_func(rg);
         setEst_civ(ec);
         setDat_adm(d);
         setCtps(ct);
-        setLogin(l);
-        setSenha(s);
+        cadastro(s);
     }
 
     public abstract void calculaSalario();
+
+    public abstract void cadastro(String s);
 
     public String getNome_func() {
         return nome_func;

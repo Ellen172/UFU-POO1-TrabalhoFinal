@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Funcionario {
+public abstract class  Funcionario {
     private String nome_func;
     private String cpf_func;
     private String rg_func;
@@ -27,6 +27,8 @@ public class Funcionario {
         setLogin(l);
         setSenha(s);
     }
+
+    public abstract void calculaSalario();
 
     public String getNome_func() {
         return nome_func;

@@ -13,8 +13,7 @@ public class Medico extends Funcionario {
         setPlanos(p);
     }
 
-    public void calculaSalario(Consulta c){
-        somaConsultaMes += c.getVal_cons();
+    public void calculaSalario(){
         sal_mensal += somaConsultaMes;
     }
 
@@ -91,4 +90,6 @@ public class Medico extends Funcionario {
             return false;
         }
     }
+
+    
 }

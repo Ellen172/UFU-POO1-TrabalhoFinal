@@ -119,6 +119,7 @@ public class Consulta {
         setVal_cons(val_cons);
 
         med.incrementaNroCons();
+        med.setSomaConsultaMes(med.getSomaConsultaMes() + getVal_cons());
         func.setTotal_cons(func.getTotal_cons() + 1);
         pac.setUlt_cons(formatarData.format(data));
     }

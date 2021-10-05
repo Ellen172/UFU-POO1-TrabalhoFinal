@@ -24,6 +24,17 @@ public class Paciente{
         }      
     }
 
+    public void mostrarDados(){
+        System.out.println("Nome: " + getNome_pac());
+        System.out.println("Cpf: " + getCpf_pac());
+        System.out.println("Rg: " + getRg_pac());
+        System.out.println("Estado Civil: " + getEst_civ());
+        System.out.println("Sexo: " + getSexo());
+        System.out.println("Data de Nascimento: " + getDat_nas());
+        System.out.println("Data de cadastro: " + getDat_cad());
+        System.out.println("Ultima consulta: " + getUlt_cons());
+    }
+
     public String getCpf_pac() {
         return cpf_pac;
     }

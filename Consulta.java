@@ -9,8 +9,17 @@ public class Consulta {
     private String receita;
     private double val_cons;
 
-    public Consulta(Class Medico, Class Paciente){
+    public Consulta(Medico m, Paciente p){
         
+    }
+
+    public Consulta(Medico m, Paciente p, Date d, String h, String med, String obs, String r, double val){
+        setData(d);
+        setHorario(h);
+        setMedicamento(med);
+        setObs_geral(obs);
+        setReceita(r);
+        setVal_cons(val);
     }
 
     public Consulta(String nome_exame) {

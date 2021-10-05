@@ -2,7 +2,6 @@ public class Medico extends Funcionario {
     private String crm;
     private String especialidades;
     private double sal_mensal;
-    private int nro_cons;
     private Plano planos[];
 
     Medico(){}
@@ -46,18 +45,7 @@ public class Medico extends Funcionario {
             return false;
         }
     }
-    public int getNro_cons() {
-        return nro_cons;
-    }
-    public boolean setNro_cons(int nro_cons) {
-        if(nro_cons>0){
-            this.nro_cons = nro_cons;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+    
     public Plano[] getPlanos() {
         return this.planos;
     }

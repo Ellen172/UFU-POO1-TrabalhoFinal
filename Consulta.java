@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Consulta {
 
@@ -105,5 +106,17 @@ public class Consulta {
         }
     }
 
+    public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons){
+        Date data = new Date();
+        SimpleDateFormat formatarHora = new SimpleDateFormat("HH/mm/ss");
+        SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
+        this.horario = formatarHora.format(data);
+        this.data = formatarData.format(data);
+
+        setMedicamento(medicamento);
+        setObs_geral(obs_geral);
+        setReceita(receita);
+        setVal_cons(val_cons);
+    }
 }
 

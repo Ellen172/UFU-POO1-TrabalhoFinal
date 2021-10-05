@@ -2,7 +2,7 @@ public class Outro_funcionario extends Funcionario{
 
     private String cargo;
     private double sal_fixo;
-    private double gratificacao;
+    private static double gratificacao;
 
     public Outro_funcionario(String cargo, double sal_fixo, double gratificacao){
         this.cargo = cargo;
@@ -38,13 +38,13 @@ public class Outro_funcionario extends Funcionario{
         }
     }
 
-    public double getGratificacao() {
+    public static double getGratificacao() {
         return gratificacao;
     }
 
-    public boolean setBairro(double gratificacao) {
+    public static boolean setBairro(double gratificacao) {
         if(gratificacao >= 0) {
-            this.gratificacao = gratificacao;
+            Outro_funcionario.gratificacao = gratificacao;
             return true;
         }
         else {

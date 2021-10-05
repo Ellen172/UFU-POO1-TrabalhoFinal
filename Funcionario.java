@@ -29,7 +29,7 @@ public abstract class  Funcionario {
 
     public abstract void calculaSalario();
 
-    public abstract void cadastro(String s);
+    public abstract void cadastro(String s); // cadastro do login e senha, para medicos login será crm, para outro_funcionario o cpf
 
     public String getNome_func() {
         return nome_func;

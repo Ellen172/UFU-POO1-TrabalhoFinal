@@ -106,7 +106,7 @@ public class Consulta {
         }
     }
 
-    public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons){
+    public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons, Medico med, Outro_funcionario func){
         Date data = new Date();
         SimpleDateFormat formatarHora = new SimpleDateFormat("HH/mm/ss");
         SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
@@ -117,6 +117,9 @@ public class Consulta {
         setObs_geral(obs_geral);
         setReceita(receita);
         setVal_cons(val_cons);
+
+        med.incrementaNroCons();
+        func.setTotal_cons(func.getTotal_cons() + 1);
     }
 }
 

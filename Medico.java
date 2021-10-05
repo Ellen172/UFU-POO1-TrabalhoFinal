@@ -7,7 +7,6 @@ public class Medico extends Funcionario {
     private static int nro_cons;
 
     Medico(){}
-   
 
     Medico(String c, Plano p[]){
         super(c);
@@ -25,7 +24,9 @@ public class Medico extends Funcionario {
     public void zeraCons(){
         nro_cons = 0;
     }
-
+    public void incrementaNroCons(){
+        nro_cons += 1;
+    }
 
     public String getCrm() {
         return crm;

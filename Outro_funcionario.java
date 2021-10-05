@@ -3,11 +3,13 @@ public class Outro_funcionario extends Funcionario{
     private String cargo;
     private double sal_fixo;
     private static double gratificacao;
+    private int total_cons;
 
-    public Outro_funcionario(String cargo, double sal_fixo, double gratificacao){
-        this.cargo = cargo;
-        this.sal_fixo = sal_fixo;
-        Outro_funcionario.gratificacao = gratificacao;
+    public Outro_funcionario(String c, double s, double g, int t){
+        setCargo(c);
+        setSal_fixo(s);
+        setGratificacao(g);
+        setTotal_cons(t);
     }
     
     public String getCargo() {
@@ -41,13 +43,23 @@ public class Outro_funcionario extends Funcionario{
     public static double getGratificacao() {
         return gratificacao;
     }
-
-    public static boolean setBairro(double gratificacao) {
+    public static boolean setGratificacao(double gratificacao) {
         if(gratificacao >= 0) {
             Outro_funcionario.gratificacao = gratificacao;
             return true;
         }
         else {
+            return false;
+        }
+    }
+    public int getTotal_cons() {
+        return total_cons;
+    }
+    public boolean setTotal_cons(int total_cons) {
+        if(total_cons>0){
+            this.total_cons = total_cons;
+            return true;
+        } else {
             return false;
         }
     }

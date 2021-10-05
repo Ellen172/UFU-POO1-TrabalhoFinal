@@ -9,7 +9,6 @@ public class Funcionario {
     private String ctps;
     private String login;
     private String senha;
-    private int total_cons;
     private static int lim_cons;
 
     Funcionario(){}
@@ -18,7 +17,7 @@ public class Funcionario {
         setCpf_func(c);
     }
 
-    Funcionario(String n, String cp, String rg, byte ec, Date d, String ct, String l, String s, int tc){
+    Funcionario(String n, String cp, String rg, byte ec, Date d, String ct, String l, String s){
         setNome_func(n);
         setCpf_func(cp);
         setRg_func(rg);
@@ -27,7 +26,6 @@ public class Funcionario {
         setCtps(ct);
         setLogin(l);
         setSenha(s);
-        setTotal_cons(tc);
     }
 
     public String getNome_func() {
@@ -116,19 +114,6 @@ public class Funcionario {
             return false;
         }
     }
-    public int getTotal_cons() {
-        return total_cons;
-    }
-    public boolean setTotal_cons(int total_cons) {
-        if(total_cons>0){
-            this.total_cons = total_cons;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
     public static int getLim_cons() {
         return lim_cons;
     }

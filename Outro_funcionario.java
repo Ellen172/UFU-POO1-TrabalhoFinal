@@ -7,7 +7,7 @@ public class Outro_funcionario extends Funcionario{
     public Outro_funcionario(String cargo, double sal_fixo, double gratificacao){
         this.cargo = cargo;
         this.sal_fixo = sal_fixo;
-        this.gratificacao = gratificacao;
+        Outro_funcionario.gratificacao = gratificacao;
     }
     
     public String getCargo() {

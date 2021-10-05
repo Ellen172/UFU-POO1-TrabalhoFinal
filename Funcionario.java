@@ -10,7 +10,6 @@ public class Funcionario {
     private String login;
     private String senha;
     private int total_cons;
-    private static int nro_cons;
     private static int lim_cons;
 
     Funcionario(){}
@@ -29,10 +28,6 @@ public class Funcionario {
         setLogin(l);
         setSenha(s);
         setTotal_cons(tc);
-    }
-
-    public void zeraCons(){
-        nro_cons = 0;
     }
 
     public String getNome_func() {
@@ -133,18 +128,6 @@ public class Funcionario {
         }
     }
 
-    public static int getNro_cons() {
-        return nro_cons;
-    }
-    public static boolean setNro_cons(int n) {
-        if(n>0){
-            nro_cons = n;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
     public static int getLim_cons() {
         return lim_cons;

@@ -64,9 +64,9 @@ public class Outro_funcionario extends Funcionario{
         }
     }
     
-    public void calcSal(double sal_fixo, double gratificacao, int total_cons){
-        if(total_cons > 60){
-            this.sal_fixo = sal_fixo + gratificacao*(total_cons-60);
+    public void calculaSalario(double sal_fixo, double gratificacao, int total_cons){
+        if(total_cons > getLim_cons()){
+            this.sal_fixo = sal_fixo + gratificacao;
         }
         else {
             this.sal_fixo = sal_fixo;

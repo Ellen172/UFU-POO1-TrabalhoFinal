@@ -4,9 +4,9 @@ public class Paciente{
     private String nome_pac;
     private String cpf_pac;
     private String rg_pac;
-    private Byte est_civ;
+    private byte est_civ;
     private String sexo;
-    private Date dat_nas;
+    private String dat_nas;
     private Date dat_cad;
     private String ult_cons;
     
@@ -69,11 +69,11 @@ public class Paciente{
         this.dat_cad = dat_cad;
     }
 
-    public Date getDat_nas() {
+    public String getDat_nas() {
         return dat_nas;
     }
     
-    public void setDat_nas(Date dat_nas) {
+    public void setDat_nas(String dat_nas) {
         this.dat_nas = dat_nas;
     }
 
@@ -89,7 +89,7 @@ public class Paciente{
         }
     }
 
-    public void setEst_civ(Byte est_civ) {
+    public void setEst_civ(byte est_civ) {
         this.est_civ = est_civ;
          
     }
@@ -115,7 +115,7 @@ public class Paciente{
         this.ult_cons = ult_cons;
     }
 
-    public Paciente(String nome_pac, String cpf_pac, String rg_pac, Byte est_civ, String sexo, Date dat_nas, String ult_cons){
+    public Paciente(String nome_pac, String cpf_pac, String rg_pac, byte est_civ, String sexo, String dat_nas, String ult_cons){
         this.dat_cad = new Date();
         setCpf_pac(cpf_pac);
         setDat_nas(dat_nas);

@@ -1,4 +1,3 @@
-import java.util.Date;
 
 public class SemPlano extends Paciente{
     private boolean desc_esp;
@@ -26,7 +25,7 @@ public class SemPlano extends Paciente{
         this.desc_esp = desc_esp;
     }
 
-    public SemPlano(String nome_pac, String cpf_pac, String rg_pac, Byte est_civ, String sexo, Date dat_nas,
+    public SemPlano(String nome_pac, String cpf_pac, String rg_pac, byte est_civ, String sexo, String dat_nas,
             String ult_cons, boolean desc_esp, double val_pago) {
         super(nome_pac, cpf_pac, rg_pac, est_civ, sexo, dat_nas, ult_cons);
         setDesc_esp(desc_esp);

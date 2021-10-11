@@ -1,11 +1,10 @@
-import java.util.Date;
 
 public abstract class  Funcionario {
     private String nome_func;
     private String cpf_func;
     private String rg_func;
     private byte est_civ;
-    private Date dat_adm;
+    private String dat_adm;
     private String ctps;
     private String login;
     private String senha;
@@ -17,7 +16,7 @@ public abstract class  Funcionario {
         setCpf_func(c);
     }
 
-    Funcionario(String n, String cp, String rg, byte ec, Date d, String ct, String s){
+    Funcionario(String n, String cp, String rg, byte ec, String d, String ct, String s){
         setNome_func(n);
         setCpf_func(cp);
         setRg_func(rg);
@@ -88,10 +87,10 @@ public abstract class  Funcionario {
     public void setEst_civ(byte est_civ) {
         this.est_civ = est_civ;
     }
-    public Date getDat_adm() {
+    public String getDat_adm() {
         return dat_adm;
     }
-    public void setDat_adm(Date dat_adm) {
+    public void setDat_adm(String dat_adm) {
         this.dat_adm = dat_adm;
     }
     public String getCtps() {

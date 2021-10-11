@@ -2,14 +2,12 @@ public class Outro_funcionario extends Funcionario{
 
     private String cargo;
     private double sal_fixo;
-    private static double gratificacao;
+    private static double gratificacao = 80;
     private int total_cons;
 
-    public Outro_funcionario(String c, double s, double g, int t){
+    public Outro_funcionario(String c, double s){
         setCargo(c);
         setSal_fixo(s);
-        setGratificacao(g);
-        setTotal_cons(t);
     }
     
     public String getCargo() {

@@ -108,7 +108,7 @@ public class Consulta {
 
     public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons, Medico med, Outro_funcionario func, Paciente pac){
         Date data = new Date();
-        SimpleDateFormat formatarHora = new SimpleDateFormat("HH/mm/ss");
+        SimpleDateFormat formatarHora = new SimpleDateFormat("HH:mm:ss");
         SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
         this.horario = formatarHora.format(data);
         this.data = formatarData.format(data);

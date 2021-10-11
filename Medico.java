@@ -13,6 +13,18 @@ public class Medico extends Funcionario {
         setPlanos(p);
     }
 
+    public void mostrarDados() {
+        super.mostrarDados();
+        this.calculaSalario();
+        System.out.println("CRM: " + this.getCrm());
+        System.out.println("Especialidades: " + this.getEspecialidades());
+        System.out.println("Salário Mensal: " + this.getSal_mensal());
+        System.out.println("Planos: " + this.getPlanosNro());
+        System.out.println("Soma das Consultas: " + this.getSomaConsultaMes());
+        System.out.println("Número de consultas: " + getNro_cons());
+        
+    }
+
     public void cadastro(String s){
         setLogin(crm);
         setSenha(s);
@@ -68,6 +80,20 @@ public class Medico extends Funcionario {
         }
     }
     
+    public String getPlanosNro() {
+        int nro = this.planos.length;
+        String p = "";
+        for(int i = 0; i<nro; i++){
+           p = p.concat(this.planos[i].getNome_plano() + " ");
+        }
+
+        return p;
+    }
+
+    public String getPlanosIndex(int index) {
+        return this.planos[index].getNome_plano();
+    }
+
     public Plano[] getPlanos() {
         return this.planos;
     }
@@ -96,5 +122,6 @@ public class Medico extends Funcionario {
         }
     }
 
+   
     
 }

@@ -6,7 +6,7 @@ class DadosPaciente {
 
         public void cadastrar (Paciente c){
             this.vetPac.add(c);
-            System.out.println("Totaldepacientes:");
+            System.out.println("Total de pacientes:");
             System.out.println(this.vetPac.size());
         }
             

@@ -31,13 +31,12 @@ public abstract class  Funcionario {
     public abstract void cadastro(String s); // cadastro do login e senha, para medicos login será crm, para outro_funcionario o cpf
 
     public void mostrarDados(){
-        System.out.println("Nome: " + getNome_func());
-        System.out.println("Cpf: " + getCpf_func());
-        System.out.println("Rg: " + getRg_func());
-        System.out.println("Estado Civil: " + getEst_Civ());
-        System.out.println("Ctps: " + getCtps());
-        System.out.println("Data de Admissão: " + getDat_adm());
-
+        System.out.println("Nome: " + this.getNome_func());
+        System.out.println("Cpf: " + this.getCpf_func());
+        System.out.println("Rg: " + this.getRg_func());
+        System.out.println("Estado Civil: " + this.getEst_Civ());
+        System.out.println("Ctps: " + this.getCtps());
+        System.out.println("Data de Admissão: " + this.getDat_adm());
     }
 
     public String getNome_func() {

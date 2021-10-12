@@ -4,6 +4,10 @@ class DadosPaciente {
     
     private ArrayList<Paciente> vetPac = new ArrayList<Paciente>();
 
+        public ArrayList<Paciente> getVetPac(){
+            return this.vetPac;
+        }
+
         public void cadastrar (Paciente c){
             this.vetPac.add(c);
             System.out.println("Total de pacientes:");

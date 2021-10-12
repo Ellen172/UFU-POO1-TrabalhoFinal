@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class DadosConsulta {
     private ArrayList<Consulta> vetCons = new ArrayList<Consulta>();
 
+    public ArrayList<Consulta> getVetCons(){
+        return this.vetCons;
+    }
+
     public void cadastrar (Consulta c){
         this.vetCons.add(c);
         System.out.println("Total de pacientes: ");

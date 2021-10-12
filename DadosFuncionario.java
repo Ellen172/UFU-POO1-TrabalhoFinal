@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class DadosFuncionario {
     private ArrayList<Funcionario> vetFunc = new ArrayList<Funcionario>();
 
+    public ArrayList<Funcionario> getVetFunc(){
+        return this.vetFunc;
+    }
+
     public void cadastrar(Funcionario f){
         this.vetFunc.add(f);
         System.out.println("Total de funcionários: ");

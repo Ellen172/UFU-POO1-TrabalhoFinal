@@ -27,6 +27,7 @@ public class Paciente implements Interface{
 
     public void mostrarDados(){
         SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("=============================");
         System.out.println("Nome: " + getNome_pac());
         System.out.println("Cpf: " + getCpf_pac());
         System.out.println("Rg: " + getRg_pac());
@@ -35,6 +36,7 @@ public class Paciente implements Interface{
         System.out.println("Data de Nascimento: " + getDat_nas());
         System.out.println("Data de cadastro: " + formatarData.format(getDat_cad()));
         System.out.println("Ultima consulta: " + getUlt_cons());
+        System.out.println("=============================");
     }
 
     public String getCpf_pac() {

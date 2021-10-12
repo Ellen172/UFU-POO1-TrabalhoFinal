@@ -9,6 +9,17 @@ public class Outro_funcionario extends Funcionario{
         setCargo(c);
         setSal_fixo(s);
     }
+
+    public void mostrarDados() {
+        super.mostrarDados();
+        this.calculaSalario();
+        System.out.println("=============================");
+        System.out.println("Cargo: " + this.getCargo());
+        System.out.println("Salário Fixo: " + this.getSal_fixo());
+        System.out.println("Gratificação: : " + getGratificacao());
+        System.out.println("Total de Consultas: " + this.getTotal_cons());
+        System.out.println("=============================");
+    }
     
     public String getCargo() {
         return cargo;

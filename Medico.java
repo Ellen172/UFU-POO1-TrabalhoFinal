@@ -16,13 +16,14 @@ public class Medico extends Funcionario {
     public void mostrarDados() {
         super.mostrarDados();
         this.calculaSalario();
+        System.out.println("=============================");
         System.out.println("CRM: " + this.getCrm());
         System.out.println("Especialidades: " + this.getEspecialidades());
         System.out.println("Salário Mensal: " + this.getSal_mensal());
         System.out.println("Planos: " + this.getPlanosNro());
         System.out.println("Soma das Consultas: " + this.getSomaConsultaMes());
         System.out.println("Número de consultas: " + getNro_cons());
-        
+        System.out.println("=============================");
     }
 
     public void cadastro(String s){

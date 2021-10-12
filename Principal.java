@@ -1,4 +1,7 @@
 import java.io.*;
+import java.net.CacheRequest;
+import java.util.ArrayList;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Principal implements Serializable{
     public static void main(String args[]){
@@ -27,6 +30,8 @@ public class Principal implements Serializable{
         cons_data.cadastrar(c1);
         cons_data.listar();
 
+
+        // ESCREVENDO DADOS
         FileOutputStream escritorArquivo = null;
 		ObjectOutputStream escritorObj = null;
 
@@ -34,66 +39,72 @@ public class Principal implements Serializable{
 			escritorArquivo = new FileOutputStream("Clinica_Dados");
 			escritorObj = new ObjectOutputStream(escritorArquivo);
 
-			escritorObj.writeObject("==== Consultas ====\n");
+            //escritorObj.writeObject(cons_data.getVetCons());
+            //escritorObj.writeObject(cons_data);
             int n1 = cons_data.getVetCons().size();
             for(int i=0; i<n1; i++){
-                escritorObj.writeObject("Data: " + cons_data.getVetCons().get(i).getData() + "\n");
-                escritorObj.writeObject("Horario: " + cons_data.getVetCons().get(i).getHorario() + "\n");
-                escritorObj.writeObject("Medicamento: " + cons_data.getVetCons().get(i).getMedicamento() + "\n");
-                escritorObj.writeObject("Observação geral: " + cons_data.getVetCons().get(i).getObs_geral() + "\n");
-                escritorObj.writeObject("Receita: " + cons_data.getVetCons().get(i).getReceita() + "\n");
-                escritorObj.writeObject("Valor da Consulta: " + cons_data.getVetCons().get(i).getVal_cons() + "\n");
-            }
-
-            escritorObj.writeObject("==== Funcionarios ====\n");
-            int n2 = func_data.getVetFunc().size();
-            for(int i=0; i<n2; i++){
-                escritorObj.writeObject("Nome: " + func_data.getVetFunc().get(i).getNome_func() + "\n");
-                escritorObj.writeObject("Cpf: " + func_data.getVetFunc().get(i).getCpf_func() + "\n");
-                escritorObj.writeObject("Rg: " + func_data.getVetFunc().get(i).getRg_func() + "\n");
-                escritorObj.writeObject("Estado civil: " + func_data.getVetFunc().get(i).getEst_Civ() + "\n");
-                escritorObj.writeObject("Data de admissão: " + func_data.getVetFunc().get(i).getDat_adm() + "\n");
-                escritorObj.writeObject("CTPS: " + func_data.getVetFunc().get(i).getCtps() + "\n");
-                escritorObj.writeObject("Login: " + func_data.getVetFunc().get(i).getLogin() + "\n");
-                escritorObj.writeObject("Senha: " + func_data.getVetFunc().get(i).getSenha() + "\n");
-                if(func_data.getVetFunc().get(i) instanceof Medico){
-                    escritorObj.writeObject("Crm: " + ((Medico)func_data.getVetFunc().get(i)).getCrm() + "\n");
-                    escritorObj.writeObject("Especialidades: " + ((Medico)func_data.getVetFunc().get(i)).getEspecialidades() + "\n");
-                    escritorObj.writeObject("Salario Mensal: " + ((Medico)func_data.getVetFunc().get(i)).getSal_mensal() + "\n");
-                    escritorObj.writeObject("Planos: " + ((Medico)func_data.getVetFunc().get(i)).getPlanos() + "\n");
-                } 
-                else if(func_data.getVetFunc().get(i) instanceof Outro_funcionario){
-                    escritorObj.writeObject("Cargo: " + ((Outro_funcionario)func_data.getVetFunc().get(i)).getCargo() + "\n");
-                    escritorObj.writeObject("Salario fixo: " + ((Outro_funcionario)func_data.getVetFunc().get(i)).getSal_fixo() + "\n");
-                } 
-                else {
-                    continue;
-                }
+                escritorObj.writeObject(cons_data.getVetCons().get(i));
+                // escritorObj.writeObject(cons_data.getVetCons().get(i).getData());
+                // escritorObj.writeObject(cons_data.getVetCons().get(i).getHorario());
+                // escritorObj.writeObject(cons_data.getVetCons().get(i).getMedicamento());
+                // escritorObj.writeObject(cons_data.getVetCons().get(i).getObs_geral());
+                // escritorObj.writeObject(cons_data.getVetCons().get(i).getReceita());
+                // escritorObj.writeObject(+ cons_data.getVetCons().get(i).getVal_cons());
             }
             
-            escritorObj.writeObject("==== Pacientes ====\n");
+            //escritorObj.writeObject(func_data.getVetFunc());
+            //escritorObj.writeObject(func_data);
+            int n2 = func_data.getVetFunc().size();
+            for(int i=0; i<n2; i++){
+                escritorObj.writeObject(func_data.getVetFunc().get(i));
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getNome_func());
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getCpf_func());
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getRg_func());
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getEst_Civ());
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getDat_adm());
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getCtps());
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getLogin());
+            //     escritorObj.writeObject(func_data.getVetFunc().get(i).getSenha());
+            //     if(func_data.getVetFunc().get(i) instanceof Medico){
+                //         escritorObj.writeObject(((Medico)func_data.getVetFunc().get(i)).getCrm());
+                //         escritorObj.writeObject(((Medico)func_data.getVetFunc().get(i)).getEspecialidades());
+                //         escritorObj.writeObject(((Medico)func_data.getVetFunc().get(i)).getSal_mensal());
+                //         escritorObj.writeObject(((Medico)func_data.getVetFunc().get(i)).getPlanos());
+                //     } 
+                //     else if(func_data.getVetFunc().get(i) instanceof Outro_funcionario){
+                    //         escritorObj.writeObject(((Outro_funcionario)func_data.getVetFunc().get(i)).getCargo());
+                    //         escritorObj.writeObject(((Outro_funcionario)func_data.getVetFunc().get(i)).getSal_fixo());
+                    //     } 
+                    //     else {
+                //         continue;
+                //     }
+            }
+                        
+            //escritorObj.writeObject(pac_data.getVetPac());
+            //escritorObj.writeObject(pac_data);
             int n3 = pac_data.getVetPac().size();
             for(int i=0; i<n3; i++){
-                escritorObj.writeObject("Nome: " + pac_data.getVetPac().get(i).getNome_pac() + "\n");
-                escritorObj.writeObject("Cpf: " + pac_data.getVetPac().get(i).getCpf_pac() + "\n");
-                escritorObj.writeObject("Rg: " + pac_data.getVetPac().get(i).getRg_pac() + "\n");
-                escritorObj.writeObject("Estado civil: " + pac_data.getVetPac().get(i).getEst_civ() + "\n");
-                escritorObj.writeObject("Sexo: " + pac_data.getVetPac().get(i).getSexo() + "\n");
-                escritorObj.writeObject("Data de nascimento: " + pac_data.getVetPac().get(i).getDat_nas() + "\n");
-                escritorObj.writeObject("Data de cadastro: " + pac_data.getVetPac().get(i).getDat_cad() + "\n");
-                escritorObj.writeObject("Data da ultima consulta: " + pac_data.getVetPac().get(i).getUlt_cons() + "\n");
-                if(pac_data.getVetPac().get(i) instanceof ComPlano){
-                    escritorObj.writeObject("Numero do cartão: " + ((ComPlano)pac_data.getVetPac().get(i)).getNro_cart() + "\n");
-                    escritorObj.writeObject("Data de ingresso: " + ((ComPlano)pac_data.getVetPac().get(i)).getData_ing() + "\n");
-                    escritorObj.writeObject("Periodo de carência: " + ((ComPlano)pac_data.getVetPac().get(i)).getPer_carencia() + "\n");
-                } 
-                else if(pac_data.getVetPac().get(i) instanceof SemPlano) {
-                    escritorObj.writeObject("Possui desconto especial: " + ((SemPlano)pac_data.getVetPac().get(i)).getDes_esp() + "\n");
-                    escritorObj.writeObject("Valor pago: " + ((SemPlano)pac_data.getVetPac().get(i)).getVal_pago() + "\n");
-                } 
-                else {
-                    continue;
-                }
+                escritorObj.writeObject(pac_data.getVetPac().get(i));
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getNome_pac());
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getCpf_pac());
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getRg_pac());
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getEst_civ());
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getSexo());
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getDat_nas());
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getDat_cad());
+            //     escritorObj.writeObject(pac_data.getVetPac().get(i).getUlt_cons());
+            //     if(pac_data.getVetPac().get(i) instanceof ComPlano){
+            //         escritorObj.writeObject(((ComPlano)pac_data.getVetPac().get(i)).getNro_cart());
+            //         escritorObj.writeObject(((ComPlano)pac_data.getVetPac().get(i)).getData_ing());
+            //         escritorObj.writeObject(((ComPlano)pac_data.getVetPac().get(i)).getPer_carencia());
+            //     } 
+            //     else if(pac_data.getVetPac().get(i) instanceof SemPlano) {
+            //         escritorObj.writeObject(((SemPlano)pac_data.getVetPac().get(i)).getDes_esp());
+            //         escritorObj.writeObject(((SemPlano)pac_data.getVetPac().get(i)).getVal_pago());
+            //     } 
+            //     else {
+            //         continue;
+            //     }
             }
 
 		} catch (FileNotFoundException e) {
@@ -108,7 +119,5 @@ public class Principal implements Serializable{
 			}
 		}
 
-
-        
     }
 }

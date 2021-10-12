@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Paciente{
     private String nome_pac;
@@ -25,13 +26,14 @@ public class Paciente{
     }
 
     public void mostrarDados(){
+        SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println("Nome: " + getNome_pac());
         System.out.println("Cpf: " + getCpf_pac());
         System.out.println("Rg: " + getRg_pac());
         System.out.println("Estado Civil: " + getEst_civ());
         System.out.println("Sexo: " + getSexo());
         System.out.println("Data de Nascimento: " + getDat_nas());
-        System.out.println("Data de cadastro: " + getDat_cad());
+        System.out.println("Data de cadastro: " + formatarData.format(getDat_cad()));
         System.out.println("Ultima consulta: " + getUlt_cons());
     }
 

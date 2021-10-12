@@ -5,7 +5,8 @@ public class Outro_funcionario extends Funcionario{
     private static double gratificacao = 80;
     private int total_cons;
 
-    public Outro_funcionario(String c, double s){
+    public Outro_funcionario(String c, double s, String cp){
+        super(cp);
         setCargo(c);
         setSal_fixo(s);
     }

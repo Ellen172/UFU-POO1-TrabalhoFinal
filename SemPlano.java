@@ -18,7 +18,7 @@ public class SemPlano extends Paciente{
     }
 
     public String getDes_esp(){
-        if(!desc_esp) return "NO";
+        if(desc_esp == false) return "NO";
         else return "YES";
     }
 

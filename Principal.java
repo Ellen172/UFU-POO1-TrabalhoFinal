@@ -12,8 +12,8 @@ public class Principal implements Serializable{
         p[1] = new Plano("vip", "45487748784198");
         
         Medico f1 = new Medico("49221854884", p);
-        Outro_funcionario o1 = new Outro_funcionario("Atendente", 1200.5);
-        Paciente p1 = new Paciente("Karen", "13747105637", "RJ45487487", (byte)0, "Feminino", "12/07/1998", "23/04/2012");
+        Outro_funcionario o1 = new Outro_funcionario("Atendente", 1200.5, "89053300023");
+        Paciente p1 = new Paciente("Karen", "49221854884", "RJ45487487", (byte)0, "Feminino", "12/07/1998", "23/04/2012");
         Consulta c1 = new Consulta(f1, p1);
         c1.realizarConsulta("Lozoprazol, Ameniaki", "2 comprimidos de cada", "a cada 9h", 250.45, f1, o1, p1);
 
@@ -61,10 +61,13 @@ public class Principal implements Serializable{
                     escritorObj.writeObject("Especialidades: " + ((Medico)func_data.getVetFunc().get(i)).getEspecialidades() + "\n");
                     escritorObj.writeObject("Salario Mensal: " + ((Medico)func_data.getVetFunc().get(i)).getSal_mensal() + "\n");
                     escritorObj.writeObject("Planos: " + ((Medico)func_data.getVetFunc().get(i)).getPlanos() + "\n");
-                }
-                else {
+                } 
+                else if(func_data.getVetFunc().get(i) instanceof Outro_funcionario){
                     escritorObj.writeObject("Cargo: " + ((Outro_funcionario)func_data.getVetFunc().get(i)).getCargo() + "\n");
                     escritorObj.writeObject("Salario fixo: " + ((Outro_funcionario)func_data.getVetFunc().get(i)).getSal_fixo() + "\n");
+                } 
+                else {
+                    continue;
                 }
             }
             
@@ -83,9 +86,13 @@ public class Principal implements Serializable{
                     escritorObj.writeObject("Numero do cartão: " + ((ComPlano)pac_data.getVetPac().get(i)).getNro_cart() + "\n");
                     escritorObj.writeObject("Data de ingresso: " + ((ComPlano)pac_data.getVetPac().get(i)).getData_ing() + "\n");
                     escritorObj.writeObject("Periodo de carência: " + ((ComPlano)pac_data.getVetPac().get(i)).getPer_carencia() + "\n");
-                } else {
+                } 
+                else if(pac_data.getVetPac().get(i) instanceof SemPlano) {
                     escritorObj.writeObject("Possui desconto especial: " + ((SemPlano)pac_data.getVetPac().get(i)).getDes_esp() + "\n");
                     escritorObj.writeObject("Valor pago: " + ((SemPlano)pac_data.getVetPac().get(i)).getVal_pago() + "\n");
+                } 
+                else {
+                    continue;
                 }
             }
 

@@ -8,7 +8,7 @@ public abstract class  Funcionario implements Interface{
     private String ctps;
     private String login;
     private String senha;
-    private static int lim_cons;
+    private static int lim_cons = 10;
 
     Funcionario(){}
 
@@ -32,7 +32,7 @@ public abstract class  Funcionario implements Interface{
 
     public void mostrarDados(){
         System.out.println("Nome: " + this.getNome_func());
-        System.out.println("Cpf: " + this.getCpf_func());
+        System.out.println("Cpf: " + ValidaCpf.imprimeCPF(this.getCpf_func()) );
         System.out.println("Rg: " + this.getRg_func());
         System.out.println("Estado Civil: " + this.getEst_Civ());
         System.out.println("Ctps: " + this.getCtps());

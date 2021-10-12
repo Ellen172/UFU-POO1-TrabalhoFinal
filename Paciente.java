@@ -29,7 +29,7 @@ public class Paciente implements Interface{
         SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println("=============================");
         System.out.println("Nome: " + getNome_pac());
-        System.out.println("Cpf: " + getCpf_pac());
+        System.out.println("Cpf: " + ValidaCpf.imprimeCPF(getCpf_pac()));
         System.out.println("Rg: " + getRg_pac());
         System.out.println("Estado Civil: " + getEst_civ());
         System.out.println("Sexo: " + getSexo());

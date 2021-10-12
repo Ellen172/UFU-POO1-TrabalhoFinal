@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class Consulta {
+public class Consulta implements Interface {
 
     private String data;
     private String horario;

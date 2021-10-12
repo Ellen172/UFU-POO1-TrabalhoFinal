@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class Paciente{
+public class Paciente implements Interface{
     private String nome_pac;
     private String cpf_pac;
     private String rg_pac;

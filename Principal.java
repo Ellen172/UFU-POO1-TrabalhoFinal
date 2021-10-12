@@ -17,9 +17,6 @@ public class Principal implements Serializable{
         Consulta c1 = new Consulta(f1, p1);
         c1.realizarConsulta("Lozoprazol, Ameniaki", "2 comprimidos de cada", "a cada 9h", 250.45, f1, o1, p1);
 
-        System.out.println(c1.getData());
-        System.out.println(c1.getHorario());
-
         func_data.cadastrar(f1);
         func_data.cadastrar(o1);
         func_data.listar();

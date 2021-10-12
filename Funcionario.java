@@ -1,5 +1,5 @@
 
-public abstract class  Funcionario {
+public abstract class  Funcionario implements Interface{
     private String nome_func;
     private String cpf_func;
     private String rg_func;

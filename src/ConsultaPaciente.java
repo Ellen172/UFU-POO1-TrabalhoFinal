@@ -75,6 +75,7 @@ public class ConsultaPaciente extends JFrame {
 		varCpf.setColumns(10);
 		
 		txtPacienteNaoEncontrado = new JLabel("");
+		txtPacienteNaoEncontrado.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPacienteNaoEncontrado.setBounds(78, 103, 287, 20);
 		contentPane.add(txtPacienteNaoEncontrado);
 		
@@ -123,7 +124,7 @@ public class ConsultaPaciente extends JFrame {
 				Paciente p = DadosPaciente.buscar(varCpf.getText());
 				if(p != null) {					
 					SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
-					
+					txtPacienteNaoEncontrado.setText("");
 					txtNome.setText("Nome: " + p.getNome_pac());
 					txtCpf.setText("Cpf: " + ValidaCpf.imprimeCPF(p.getCpf_pac()));
 					txtRg.setText("Rg: " + p.getRg_pac());
@@ -135,6 +136,14 @@ public class ConsultaPaciente extends JFrame {
 					
 				}else {
 					txtPacienteNaoEncontrado.setText("Paciente não encontrado!");
+					txtNome.setText("");
+					txtCpf.setText("");
+					txtRg.setText("");
+					txtEstCiv.setText("");
+					txtSexo.setText("");
+					txtDataNascimento.setText("");
+					txtDataCadastro.setText("");
+					txtUltimaCons.setText("");
 				}
 			}
 			else {

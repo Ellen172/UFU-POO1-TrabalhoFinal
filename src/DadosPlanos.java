@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class DadosPlanos implements Serializable{
     private static ArrayList<Plano> vetPlano = new ArrayList<Plano>();
 
-    public static ArrayList<Plano> getVetFunc(){
+    public static ArrayList<Plano> getVet(){
         return vetPlano;
     }
 
@@ -13,10 +13,13 @@ public class DadosPlanos implements Serializable{
         System.out.println("Cadastrado!");
     }
 
-    public static void listar(){
-        for( Plano objeto: DadosPlanos.vetPlano) {
-            objeto.mostrarDados();
+    public static String listar(){
+        String str="";
+    	for( Plano objeto: DadosPlanos.vetPlano) {
+            //objeto.mostrarDados();
+            str.concat(objeto.mostrarDados());
         }
+    	return str;
     }
 
     public static Plano buscar(String nome_plano){

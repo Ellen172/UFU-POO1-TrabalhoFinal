@@ -139,7 +139,7 @@ public class JanelaPrincipal extends JFrame {
 				new CadastrarPlanos().setVisible(true);
 			}
 			else if(e.getSource() == verPlanos) {
-				
+				new VerPlanos().setVisible(true);
 			}
 			else {
 				new EfetuarConsulta().setVisible(true);

@@ -42,7 +42,6 @@ public class CadastroFuncionario extends JFrame {
 	private JLabel lblEspecialidades;
 	private JTextField varEspecialidades;
 	private JLabel lblPlanos;
-	private JTextField varPlanos;
 	private JButton btnEnviar;
 	private JButton btnSair;
 	private JButton btnLimpar;
@@ -52,6 +51,10 @@ public class CadastroFuncionario extends JFrame {
 	private JComboBox varCargo;
 	private JLabel lblCargo;
 	private JLabel lblSalario;
+	private JCheckBox chckbxNewCheckBox_2;
+	private JCheckBox chckbxNewCheckBox;
+	private JCheckBox chckbxNewCheckBox_1;
+	private JCheckBox chckbxNewCheckBox_3;
 
 	public CadastroFuncionario() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -172,7 +175,6 @@ public class CadastroFuncionario extends JFrame {
 		lblEspecialidades = new JLabel("Especialidades :");
 		varEspecialidades = new JTextField();
 		lblPlanos = new JLabel("Planos :");
-		varPlanos = new JTextField();
 		btnEnviar = new JButton("Enviar");
 		
 		// Outros funcionarios
@@ -185,6 +187,7 @@ public class CadastroFuncionario extends JFrame {
 		btnSair = new JButton("Sair");
 		btnEnviar = new JButton("Enviar");
 		btnLimpar = new JButton("Limpar");
+		
 
 	}
 	
@@ -224,11 +227,23 @@ public class CadastroFuncionario extends JFrame {
 				lblPlanos.setBounds(20, 280, 89, 14);
 				contentPane.add(lblPlanos);
 				
-				varPlanos.show();
-				varPlanos.setBounds(119, 277, 355, 20);
-				contentPane.add(varPlanos);
-				varPlanos.setColumns(10);
+				lblPlanos.show();
+				lblPlanos.setHorizontalAlignment(SwingConstants.TRAILING);
+				lblPlanos.setBounds(20, 280, 89, 14);
+				contentPane.add(lblPlanos);
 				
+				int h=10, v=301;
+				for(int i=0; i<DadosPlanos.getVet().size(); i++) {
+					chckbxNewCheckBox = new JCheckBox(DadosPlanos.getVet().get(i).getNome_plano());
+					chckbxNewCheckBox.setBounds(h, v, 148, 23);
+					contentPane.add(chckbxNewCheckBox);
+					if(h<310)
+						h+=150;
+					else {
+						v+=150;
+						h=10;
+					}
+				}
 				btnSair.setBounds(92, 320, 89, 23);
 				contentPane.add(btnSair);
 				
@@ -247,7 +262,6 @@ public class CadastroFuncionario extends JFrame {
 				lblEspecialidades.hide();
 				varEspecialidades.hide();
 				lblPlanos.hide();
-				varPlanos.hide();
 				
 				lblCargo.show();
 				lblCargo.setBounds(10, 240, 46, 14);
@@ -278,7 +292,7 @@ public class CadastroFuncionario extends JFrame {
 				contentPane.add(btnLimpar);
 			}
 		}
-		/*
+		
 		private class BotaoMedico implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == btnEnviar) {
@@ -296,6 +310,6 @@ public class CadastroFuncionario extends JFrame {
 				}
 			}
 		}
-		*/
+		
 	}
 }

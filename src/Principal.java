@@ -9,7 +9,7 @@ public class Principal implements Serializable{
     	DadosFuncionario func_data = new DadosFuncionario();
     	DadosPaciente pac_data = new DadosPaciente();
     	DadosConsulta cons_data = new DadosConsulta();
- 	
+ 	 
     	JanelaPrincipal frame = new JanelaPrincipal();
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(550, 240);

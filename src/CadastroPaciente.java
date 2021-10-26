@@ -17,7 +17,7 @@ public class CadastroPaciente extends JFrame {
 	private JButton botaoSair;
 	private JButton botaoEnviar;
 	private JButton botaoLimpar;
-	private JLabel txtUltCons;
+	private JLabel txtUltCons; 
 	private JTextField varUltCons;
 	
 	Paciente pac = null;

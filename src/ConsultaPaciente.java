@@ -30,25 +30,6 @@ public class ConsultaPaciente extends JFrame {
 	private JLabel txtDataCadastro;
 	private JLabel txtUltimaCons;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultaPaciente frame = new ConsultaPaciente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public ConsultaPaciente() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -82,6 +63,7 @@ public class ConsultaPaciente extends JFrame {
 		botaoBuscar = new JButton("Buscar");
 		botaoBuscar.setBounds(315, 62, 89, 23);
 		contentPane.add(botaoBuscar);
+		botaoBuscar.addActionListener(tratador);
 		
 		txtNome = new JLabel("");
 		txtNome.setBounds(24, 113, 380, 14);
@@ -114,7 +96,6 @@ public class ConsultaPaciente extends JFrame {
 		txtUltimaCons = new JLabel("");
 		txtUltimaCons.setBounds(214, 213, 190, 14);
 		contentPane.add(txtUltimaCons);
-		botaoBuscar.addActionListener(tratador);
 
 	}
 	

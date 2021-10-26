@@ -102,7 +102,7 @@ public class JanelaPrincipal extends JFrame {
 				new ConsultaPaciente().setVisible(true);
 			}
 			else if(e.getSource() == removerPaciente) {
-				
+				new RemovePaciente().setVisible(true);
 			}
 			else if(e.getSource() == cadastrarConsulta) {
 				new CadastrarConsulta().setVisible(true);

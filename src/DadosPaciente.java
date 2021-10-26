@@ -12,7 +12,7 @@ public class DadosPaciente implements Serializable{
         public static void cadastrar (Paciente c){
             DadosPaciente.vetPac.add(c);
             System.out.println("Cadastrado!");
-        }
+        } 
             
         public static void listar(){
             for( Paciente objeto: DadosPaciente.vetPac){

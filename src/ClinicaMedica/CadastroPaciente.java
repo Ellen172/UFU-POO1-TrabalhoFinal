@@ -162,7 +162,9 @@ public class CadastroPaciente extends JFrame {
 					else est_civ = (byte)2;
 					pac = new Paciente(varNome.getText(), varCpf.getText(), varRg.getText(), est_civ, 
 										(String)varSexo.getItemAt(varSexo.getSelectedIndex()), varDataNasc.getText(), varUltCons.getText());
-										
+					
+					DadosPaciente.cadastrar(pac);
+
 					JOptionPane.showMessageDialog(null, "Usuário "+varNome.getText()+" inserido com sucesso");
 				    varNome.setText("");
 					varDataNasc.setText("");

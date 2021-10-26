@@ -4,25 +4,25 @@ import java.util.ArrayList;
 
 public class DadosPaciente implements Serializable{
     
-    private ArrayList<Paciente> vetPac = new ArrayList<Paciente>();
+    private static ArrayList<Paciente> vetPac = new ArrayList<Paciente>();
 
         public ArrayList<Paciente> getVetPac(){
-            return this.vetPac;
+            return DadosPaciente.vetPac;
         }
 
-        public void cadastrar (Paciente c){
-            this.vetPac.add(c);
+        public static void cadastrar (Paciente c){
+            DadosPaciente.vetPac.add(c);
             System.out.println("Cadastrado!");
         }
             
-        public void listar(){
-            for( Paciente objeto: this.vetPac){
+        public static void listar(){
+            for( Paciente objeto: DadosPaciente.vetPac){
                 objeto.mostrarDados();
             }
         }
-        public Paciente buscar(String cpf){
+        public static Paciente buscar(String cpf){
             Paciente c = null;
-            for(Paciente objeto: this.vetPac){
+            for(Paciente objeto: DadosPaciente.vetPac){
                 if(objeto.getCpf_pac().equals(cpf)){
                     c = objeto;
                     break;
@@ -30,10 +30,10 @@ public class DadosPaciente implements Serializable{
             }
             return c;
         }
-        public boolean excluir(String cpf){
-            Paciente c = this.buscar(cpf);
+        public static boolean excluir(String cpf){
+            Paciente c = DadosPaciente.buscar(cpf);
             if(c != null){
-                this.vetPac.remove(c);
+                DadosPaciente.vetPac.remove(c);
                 return true;
             }
             else {

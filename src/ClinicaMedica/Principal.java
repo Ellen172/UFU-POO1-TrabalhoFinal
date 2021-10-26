@@ -15,7 +15,7 @@ public class Principal implements Serializable{
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(550, 240);
     	frame.setVisible(true);
-    	    	
+    	    	z
     	for(int i=0; i<pac_data.getVetPac().size(); i++) {
     		pac_data.getVetPac().get(i).mostrarDados();
     	}
@@ -81,7 +81,7 @@ public class Principal implements Serializable{
 			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println("Arquivo não encontrado");
+			System.out.println("Arquivo nï¿½o encontrado");
 		} catch (IOException e) {
 			System.out.println("Erro ao criar arquivo");
 			System.out.println(e.getMessage());

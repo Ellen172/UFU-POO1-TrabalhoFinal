@@ -8,7 +8,7 @@ public class Plano implements Serializable{
         setNome_plano(n); 
         setCnpj(c);
     }
-
+    
     public String getNome_plano() {
         return nome_plano;
     }
@@ -31,4 +31,10 @@ public class Plano implements Serializable{
             return false;
         }
     }
+
+	public String mostrarDados() {
+		// TODO Auto-generated method stub
+		return ("Nome: " + getNome_plano() + "\nCnpj: " + getCnpj() + "\n");
+	}
+
 }

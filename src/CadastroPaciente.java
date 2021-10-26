@@ -31,7 +31,7 @@ public class CadastroPaciente extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		TrataBotoes tratador = new TrataBotoes();
+		TrataBotoes tratador = new TrataBotoes(); 
 		
 		varSolteiro = new JRadioButton("Solteiro(a)");
 		varSolteiro.setBounds(92, 149, 102, 23);

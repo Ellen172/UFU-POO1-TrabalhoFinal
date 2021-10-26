@@ -31,6 +31,8 @@ public class JanelaPrincipal extends JFrame {
 	JButton consultarConsulta;
 	JButton removerConsulta;
 	JButton efetuarConsulta;
+	private JButton cadastrarPlano;
+	private JButton verPlanos;
 
 	public JanelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,9 +90,20 @@ public class JanelaPrincipal extends JFrame {
 		removerConsulta.addActionListener(tratador);
 
 		efetuarConsulta = new JButton("Efetuar Consulta");
-		efetuarConsulta.setBounds(173, 157, 173, 33);
+		efetuarConsulta.setBounds(356, 157, 168, 33);
 		contentPane.add(efetuarConsulta);
 		efetuarConsulta.addActionListener(tratador);
+		
+		cadastrarPlano = new JButton("Cadastrar Plano");
+		cadastrarPlano.setBounds(10, 157, 153, 33);
+		contentPane.add(cadastrarPlano);
+		cadastrarPlano.addActionListener(tratador);
+
+		verPlanos = new JButton("Ver Planos");
+		verPlanos.setBounds(173, 157, 173, 33);
+		contentPane.add(verPlanos);
+		verPlanos.addActionListener(tratador);
+
 	}
 	
 	private class TrataBotoes implements ActionListener {
@@ -120,6 +133,12 @@ public class JanelaPrincipal extends JFrame {
 				new ConsultaFuncionario().setVisible(true);
 			}
 			else if(e.getSource() == removerFuncionario) {
+				
+			}
+			else if(e.getSource() == cadastrarPlano) {
+				new CadastrarPlanos().setVisible(true);
+			}
+			else if(e.getSource() == verPlanos) {
 				
 			}
 			else {

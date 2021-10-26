@@ -8,10 +8,20 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.AbstractListModel;
+import javax.swing.ListSelectionModel;
 
 public class CadastroFuncionario extends JFrame {
 
@@ -21,38 +31,38 @@ public class CadastroFuncionario extends JFrame {
 	private JTextField varRgFunc;
 	private JTextField varDataAdm;
 	private JTextField varCtps;
-	private JTextField varLogin;
 	private JTextField varSenha;
+	private JButton btnContinuar;
+	private JRadioButton varDivorciado;
+	private JRadioButton varCasado;
+	private JRadioButton varSolteiro;
+	private JLabel lblTipoFunc;
+	private JLabel lblCrm;
+	private JTextField varCrm;
+	private JLabel lblEspecialidades;
+	private JTextField varEspecialidades;
+	private JLabel lblPlanos;
+	private JTextField varPlanos;
+	private JButton btnEnviar;
+	private JButton btnSair;
+	private JButton btnLimpar;
+	private JButton btnMedico;
+	private JButton btnOutros;
+	private JTextField varSalario;
+	private JComboBox varCargo;
+	private JLabel lblCargo;
+	private JLabel lblSalario;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CadastroFuncionario frame = new CadastroFuncionario();
-					frame.setVisible(true);
-					frame.setSize(500,300); 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public CadastroFuncionario() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 300);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 503, 260); //260
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblCadastroDeFuncionrio = new JLabel("Cadastro de Funcion\u00E1rio");
+		TrataBotoes tratador = new TrataBotoes();
+
+		JLabel lblCadastroDeFuncionrio = new JLabel("Cadastro de Funcionário");
 		lblCadastroDeFuncionrio.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCadastroDeFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblCadastroDeFuncionrio.setBounds(119, 11, 266, 30);
@@ -70,39 +80,39 @@ public class CadastroFuncionario extends JFrame {
 		varNomeFunc.setColumns(10);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(10, 77, 46, 14);
+		lblCpf.setBounds(10, 77, 38, 14);
 		contentPane.add(lblCpf);
 		
 		varCpfFunc = new JTextField();
 		lblCpf.setLabelFor(varCpfFunc);
-		varCpfFunc.setBounds(66, 74, 168, 20);
+		varCpfFunc.setBounds(56, 74, 178, 20);
 		contentPane.add(varCpfFunc);
 		varCpfFunc.setColumns(10);
 		
 		JLabel lblRg = new JLabel("RG:");
-		lblRg.setBounds(261, 77, 46, 14);
+		lblRg.setBounds(248, 77, 38, 14);
 		contentPane.add(lblRg);
 		
 		varRgFunc = new JTextField();
 		lblRg.setLabelFor(varRgFunc);
-		varRgFunc.setBounds(294, 74, 180, 20);
+		varRgFunc.setBounds(296, 74, 178, 20);
 		contentPane.add(varRgFunc);
 		varRgFunc.setColumns(10);
 		
-		JLabel lblEstadoCvil = new JLabel("Estado C\u00EDvil:");
+		JLabel lblEstadoCvil = new JLabel("Estado Cívil:");
 		lblEstadoCvil.setBounds(10, 102, 75, 14);
 		contentPane.add(lblEstadoCvil);
 		
-		JRadioButton varSolteiro = new JRadioButton("Solteiro(a)");
+		varSolteiro = new JRadioButton("Solteiro(a)");
 		lblEstadoCvil.setLabelFor(varSolteiro);
 		varSolteiro.setBounds(115, 98, 109, 23);
 		contentPane.add(varSolteiro);
 		
-		JRadioButton varCasado = new JRadioButton("Casado(a)");
+		varCasado = new JRadioButton("Casado(a)");
 		varCasado.setBounds(226, 98, 109, 23);
 		contentPane.add(varCasado);
 		
-		JRadioButton varDivorciado = new JRadioButton("Divorciado(a)");
+		varDivorciado = new JRadioButton("Divorciado(a)");
 		varDivorciado.setBounds(337, 98, 109, 23);
 		contentPane.add(varDivorciado);
 		
@@ -111,13 +121,13 @@ public class CadastroFuncionario extends JFrame {
 		bg.add(varCasado);
 		bg.add(varDivorciado);
 		
-		JLabel lblDataDeAdmisso = new JLabel("Data de Admiss\u00E3o:");
+		JLabel lblDataDeAdmisso = new JLabel("Data de Admissão:");
 		lblDataDeAdmisso.setBounds(10, 127, 109, 14);
 		contentPane.add(lblDataDeAdmisso);
 		
 		varDataAdm = new JTextField();
 		lblDataDeAdmisso.setLabelFor(varDataAdm);
-		varDataAdm.setBounds(125, 124, 140, 20);
+		varDataAdm.setBounds(119, 124, 140, 20);
 		contentPane.add(varDataAdm);
 		varDataAdm.setColumns(10);
 		
@@ -131,29 +141,161 @@ public class CadastroFuncionario extends JFrame {
 		contentPane.add(varCtps);
 		varCtps.setColumns(10);
 		
-		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setBounds(10, 152, 46, 14);
-		contentPane.add(lblLogin);
-		
-		varLogin = new JTextField();
-		varLogin.setBounds(56, 152, 168, 20);
-		contentPane.add(varLogin);
-		varLogin.setColumns(10);
-		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(234, 155, 46, 14);
+		lblSenha.setBounds(10, 152, 46, 14);
 		contentPane.add(lblSenha);
 		
 		varSenha = new JTextField();
 		lblSenha.setLabelFor(varSenha);
-		lblLogin.setLabelFor(varSenha);
-		varSenha.setBounds(294, 153, 180, 20);
+		varSenha.setBounds(56, 152, 148, 20);
 		contentPane.add(varSenha);
 		varSenha.setColumns(10);
 		
-		JButton btnEnviar = new JButton("Enviar");
-		btnEnviar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnEnviar.setBounds(188, 203, 132, 30);
-		contentPane.add(btnEnviar);
+		lblTipoFunc = new JLabel("Tipo de Funcionario :");
+		lblTipoFunc.setBounds(10, 193, 132, 14);
+		contentPane.add(lblTipoFunc);
+		
+		btnMedico = new JButton("Medico");
+		btnMedico.setBounds(145, 189, 89, 23);
+		contentPane.add(btnMedico);
+		btnMedico.addActionListener(tratador);
+		
+		btnOutros = new JButton("Outros");
+		btnOutros.setBounds(285, 189, 89, 23);
+		contentPane.add(btnOutros);
+		btnOutros.addActionListener(tratador);
+		
+		
+		// medico
+		lblCrm = new JLabel("Crm :");
+		varCrm = new JTextField();
+		lblEspecialidades = new JLabel("Especialidades :");
+		varEspecialidades = new JTextField();
+		lblPlanos = new JLabel("Planos :");
+		varPlanos = new JTextField();
+		btnEnviar = new JButton("Enviar");
+		
+		// Outros funcionarios
+		lblCargo = new JLabel("Cargo:");
+		lblSalario = new JLabel("Sálario:");
+		varSalario = new JTextField();
+		varCargo = new JComboBox();
+		
+		// botoes
+		btnSair = new JButton("Sair");
+		btnEnviar = new JButton("Enviar");
+		btnLimpar = new JButton("Limpar");
+
+	}
+	
+	private class TrataBotoes implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() == btnMedico) {
+				//new CadastroMedico().setVisible(true);
+				setBounds(100, 100, 503, 390);
+				
+				lblCargo.hide();
+				lblSalario.hide();
+				varSalario.hide();
+				varCargo.hide();
+				
+				lblCrm.show();
+				lblCrm.setHorizontalAlignment(SwingConstants.TRAILING);
+				lblCrm.setBounds(63, 231, 46, 14);
+				contentPane.add(lblCrm);
+				
+				varCrm.show();
+				varCrm.setBounds(119, 228, 168, 20);
+				contentPane.add(varCrm);
+				varCrm.setColumns(10);
+				
+				lblEspecialidades.show();
+				lblEspecialidades.setHorizontalAlignment(SwingConstants.TRAILING);
+				lblEspecialidades.setBounds(10, 255, 99, 14);
+				contentPane.add(lblEspecialidades);
+				
+				varEspecialidades.show();
+				varEspecialidades.setBounds(119, 252, 355, 20);
+				contentPane.add(varEspecialidades);
+				varEspecialidades.setColumns(10);
+				
+				lblPlanos.show();
+				lblPlanos.setHorizontalAlignment(SwingConstants.TRAILING);
+				lblPlanos.setBounds(20, 280, 89, 14);
+				contentPane.add(lblPlanos);
+				
+				varPlanos.show();
+				varPlanos.setBounds(119, 277, 355, 20);
+				contentPane.add(varPlanos);
+				varPlanos.setColumns(10);
+				
+				btnSair.setBounds(92, 320, 89, 23);
+				contentPane.add(btnSair);
+				
+				btnEnviar.setBounds(308, 320, 89, 23);
+				contentPane.add(btnEnviar);
+				
+				btnLimpar.setBounds(199, 320, 89, 23);
+				contentPane.add(btnLimpar);
+			}
+			
+			if(e.getSource() == btnOutros) {
+				setBounds(100, 100, 503, 350); 
+				
+				lblCrm.hide();
+				varCrm.hide();
+				lblEspecialidades.hide();
+				varEspecialidades.hide();
+				lblPlanos.hide();
+				varPlanos.hide();
+				
+				lblCargo.show();
+				lblCargo.setBounds(10, 240, 46, 14);
+				contentPane.add(lblCargo);
+				
+				lblSalario.show();
+				lblSalario.setBounds(289, 240, 46, 14);
+				contentPane.add(lblSalario);
+				lblSalario.setLabelFor(varSalario);
+				
+				varSalario.show();
+				varSalario.setBounds(349, 237, 125, 20);
+				contentPane.add(varSalario);
+				varSalario.setColumns(10);
+				
+				varCargo.show();
+				varCargo.setModel(new DefaultComboBoxModel(new String[] {"Recepção", "Limpeza", "Auxiliar"}));
+				varCargo.setBounds(66, 236, 193, 22);
+				contentPane.add(varCargo);
+				
+				btnSair.setBounds(92, 280, 89, 23);
+				contentPane.add(btnSair);
+				
+				btnEnviar.setBounds(308, 280, 89, 23);
+				contentPane.add(btnEnviar);
+				
+				btnLimpar.setBounds(199, 280, 89, 23);
+				contentPane.add(btnLimpar);
+			}
+		}
+		/*
+		private class BotaoMedico implements ActionListener {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == btnEnviar) {
+					byte est_civ;
+					if(varSolteiro.isSelected())
+						est_civ = (byte)0;
+					if(varCasado.isSelected())
+						est_civ = (byte)1;
+					else est_civ = (byte)2;
+					Plano planos[] = {"a", "b"};
+					Medico med = new Medico(varNomeFunc.getText(), varCpfFunc.getText(), varRgFunc.getText(), est_civ, varDataAdm.getText(), 
+							varCtps.getText(), varSenha.getText(), varCrm.getText(), varEspecialidades.getText(), planos);
+					// Medico(String nome_func, String cpf_func, String rg_func, byte est_civ, String dat_adm, String ctps, String senha, 
+		    		// String crm, String especialidades, Plano planos[])
+				}
+			}
+		}
+		*/
 	}
 }

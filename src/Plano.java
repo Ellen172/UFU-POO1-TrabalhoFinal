@@ -5,7 +5,7 @@ public class Plano implements Serializable{
     private String cnpj;
 
     Plano(String n, String c){
-        setNome_plano(n);
+        setNome_plano(n); 
         setCnpj(c);
     }
 

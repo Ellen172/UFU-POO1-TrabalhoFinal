@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public abstract class  Funcionario implements Interface, Serializable{
+public abstract class Funcionario implements Interface, Serializable{
     private String nome_func;
     private String cpf_func;
     private String rg_func;
@@ -13,18 +13,18 @@ public abstract class  Funcionario implements Interface, Serializable{
 
     Funcionario(){}
 
-    Funcionario(String c){
-        setCpf_func(c);
+    Funcionario(String cpf){ 
+        setCpf_func(cpf);
     }
 
-    Funcionario(String n, String cp, String rg, byte ec, String d, String ct, String s){
-        setNome_func(n);
-        setCpf_func(cp);
-        setRg_func(rg);
-        setEst_civ(ec);
-        setDat_adm(d);
-        setCtps(ct);
-        cadastro(s);
+    Funcionario(String nome_func, String cpf_func, String rg_func, byte est_civ, String dat_adm, String ctps, String senha){
+        setNome_func(nome_func);
+        setCpf_func(cpf_func);
+        setRg_func(rg_func);
+        setEst_civ(est_civ);
+        setDat_adm(dat_adm);
+        setCtps(ctps);
+        cadastro(senha);
     }
 
     public abstract void calculaSalario();

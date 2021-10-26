@@ -10,11 +10,19 @@ public class Medico extends Funcionario implements Serializable{
 
     Medico(){}
 
-    Medico(String c, Plano p[]){
-        super(c);
+    Medico(String cpf_func, Plano p[]){
+        super(cpf_func);
         setPlanos(p);
     }
-
+    
+    Medico(String nome_func, String cpf_func, String rg_func, byte est_civ, String dat_adm, String ctps, String senha, 
+    		String crm, String especialidades, Plano planos[]){
+    	super(nome_func, cpf_func, rg_func, est_civ, dat_adm, ctps, senha);
+    	setCrm(crm);
+    	setEspecialidades(especialidades);
+    	setPlanos(planos);
+    }
+ 
     public void mostrarDados() {
         super.mostrarDados();
         this.calculaSalario();

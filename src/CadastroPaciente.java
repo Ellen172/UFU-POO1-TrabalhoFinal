@@ -18,7 +18,7 @@ public class CadastroPaciente extends JFrame {
 	private JButton botaoEnviar;
 	private JButton botaoLimpar;
 	private JLabel txtUltCons; 
-	private JTextField varUltCons;
+	private JTextField varUltCons; 
 	
 	Paciente pac = null;
 		
@@ -113,7 +113,6 @@ public class CadastroPaciente extends JFrame {
 		botaoSair.setBounds(92, 242, 89, 23);
 		contentPane.add(botaoSair);
 		botaoSair.addActionListener(tratador);
-
 		
 		botaoEnviar = new JButton("Enviar");
 		botaoEnviar.setBounds(308, 242, 89, 23);

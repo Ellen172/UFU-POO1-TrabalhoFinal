@@ -2,26 +2,26 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class DadosFuncionario implements Serializable{
-    private ArrayList<Funcionario> vetFunc = new ArrayList<Funcionario>();
+    private static ArrayList<Funcionario> vetFunc = new ArrayList<Funcionario>();
 
-    public ArrayList<Funcionario> getVetFunc(){
-        return this.vetFunc;
+    public static ArrayList<Funcionario> getVetFunc(){
+        return vetFunc;
     }
 
-    public void cadastrar(Funcionario f){
-        this.vetFunc.add(f);
+    public static void cadastrar(Funcionario f){
+    	DadosFuncionario.vetFunc.add(f);
         System.out.println("Cadastrado!");
     }
 
-    public void listar(){
-        for( Funcionario objeto: this.vetFunc) {
+    public static void listar(){
+        for( Funcionario objeto: DadosFuncionario.vetFunc) {
             objeto.mostrarDados();
         }
     }
 
-    public Funcionario buscar(String cpf){
+    public static Funcionario buscar(String cpf){
         Funcionario f = null;
-        for ( Funcionario objeto : this.vetFunc) {
+        for ( Funcionario objeto : DadosFuncionario.vetFunc) {
             if(objeto.getCpf_func().equals(cpf)) {
                 f = objeto;
                 break;
@@ -30,10 +30,10 @@ public class DadosFuncionario implements Serializable{
         return f;
     }
 
-    public boolean excluir(String cpf){
-        Funcionario f = this.buscar(cpf);
+    public static boolean excluir(String cpf){
+        Funcionario f = DadosFuncionario.buscar(cpf);
         if(f != null){
-            this.vetFunc.remove(f);
+        	DadosFuncionario.vetFunc.remove(f);
             return true;
         }
         else {

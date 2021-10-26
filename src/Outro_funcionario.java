@@ -9,7 +9,7 @@ public class Outro_funcionario extends Funcionario implements Serializable{
 
     public Outro_funcionario(String c, double s, String cp){
         super(cp);
-        setCargo(c);
+        setCargo(c); 
         setSal_fixo(s);
     }
 

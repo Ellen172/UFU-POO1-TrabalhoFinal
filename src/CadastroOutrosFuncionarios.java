@@ -80,7 +80,7 @@ public class CadastroOutrosFuncionarios extends JFrame {
 		contentPane.add(lblCargo);
 		
 		varCargo = new JTextField();
-		lblCargo.setLabelFor(varCargo);
+		lblCargo.setLabelFor(varCargo); 
 		varCargo.setBounds(55, 99, 125, 20);
 		contentPane.add(varCargo);
 		varCargo.setColumns(10);

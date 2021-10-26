@@ -19,7 +19,7 @@ public class Paciente implements Interface, Serializable{
 
     public boolean setNome_pac(String nome_pac) {
         if(nome_pac.length() > 0){
-            this.nome_pac = nome_pac;
+            this.nome_pac = nome_pac; 
             return true;
         }    
         else{

@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -31,7 +32,7 @@ public class CadastroFuncionario extends JFrame {
 	private JTextField varRgFunc;
 	private JTextField varDataAdm;
 	private JTextField varCtps;
-	private JTextField varSenha;
+	private JPasswordField varSenha;
 	private JButton btnContinuar;
 	private JRadioButton varDivorciado;
 	private JRadioButton varCasado;
@@ -55,6 +56,8 @@ public class CadastroFuncionario extends JFrame {
 	private JCheckBox chckbxNewCheckBox;
 	private JCheckBox chckbxNewCheckBox_1;
 	private JCheckBox chckbxNewCheckBox_3;
+	private Plano planos[];
+	int h, v;
 
 	public CadastroFuncionario() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -148,7 +151,7 @@ public class CadastroFuncionario extends JFrame {
 		lblSenha.setBounds(10, 152, 46, 14);
 		contentPane.add(lblSenha);
 		
-		varSenha = new JTextField();
+		varSenha = new JPasswordField();
 		lblSenha.setLabelFor(varSenha);
 		varSenha.setBounds(56, 152, 148, 20);
 		contentPane.add(varSenha);
@@ -195,7 +198,8 @@ public class CadastroFuncionario extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == btnMedico) {
 				//new CadastroMedico().setVisible(true);
-				setBounds(100, 100, 503, 390);
+				setBounds(100, 100, 503, 450);
+				BotaoMedico trataMedico = new BotaoMedico();
 				
 				lblCargo.hide();
 				lblSalario.hide();
@@ -232,26 +236,31 @@ public class CadastroFuncionario extends JFrame {
 				lblPlanos.setBounds(20, 280, 89, 14);
 				contentPane.add(lblPlanos);
 				
-				int h=10, v=301;
+				planos = new Plano[DadosPlanos.getVet().size()];
+				h=10; v=301;
 				for(int i=0; i<DadosPlanos.getVet().size(); i++) {
 					chckbxNewCheckBox = new JCheckBox(DadosPlanos.getVet().get(i).getNome_plano());
 					chckbxNewCheckBox.setBounds(h, v, 148, 23);
 					contentPane.add(chckbxNewCheckBox);
+					planos[i] = new Plano(DadosPlanos.getVet().get(i).getNome_plano(), DadosPlanos.getVet().get(i).getCnpj());
 					if(h<310)
 						h+=150;
 					else {
-						v+=150;
+						v+=20;
 						h=10;
 					}
 				}
-				btnSair.setBounds(92, 320, 89, 23);
+				btnSair.setBounds(92, v+30, 89, 23);
 				contentPane.add(btnSair);
+				btnSair.addActionListener(trataMedico);
 				
-				btnEnviar.setBounds(308, 320, 89, 23);
+				btnEnviar.setBounds(308, v+30, 89, 23);
 				contentPane.add(btnEnviar);
+				btnEnviar.addActionListener(trataMedico);
 				
-				btnLimpar.setBounds(199, 320, 89, 23);
+				btnLimpar.setBounds(199, v+30, 89, 23);
 				contentPane.add(btnLimpar);
+				btnLimpar.addActionListener(trataMedico);
 			}
 			
 			if(e.getSource() == btnOutros) {
@@ -296,17 +305,34 @@ public class CadastroFuncionario extends JFrame {
 		private class BotaoMedico implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == btnEnviar) {
-					byte est_civ;
-					if(varSolteiro.isSelected())
-						est_civ = (byte)0;
-					if(varCasado.isSelected())
-						est_civ = (byte)1;
-					else est_civ = (byte)2;
-					Plano planos[] = {"a", "b"};
-					Medico med = new Medico(varNomeFunc.getText(), varCpfFunc.getText(), varRgFunc.getText(), est_civ, varDataAdm.getText(), 
-							varCtps.getText(), varSenha.getText(), varCrm.getText(), varEspecialidades.getText(), planos);
-					// Medico(String nome_func, String cpf_func, String rg_func, byte est_civ, String dat_adm, String ctps, String senha, 
-		    		// String crm, String especialidades, Plano planos[])
+					if(varNomeFunc.getText().isEmpty() || varCpfFunc.getText().isEmpty() || varRgFunc.getText().isEmpty() || 
+							varDataAdm.getText().isEmpty() || varCtps.getText().isEmpty() || varSenha.getText().isEmpty() || 
+							varCrm.getText().isEmpty() || varEspecialidades.getText().isEmpty()) {
+						   JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+					} else {
+						byte est_civ;
+						if(varSolteiro.isSelected())
+							est_civ = (byte)0;
+						if(varCasado.isSelected())
+							est_civ = (byte)1;
+						else est_civ = (byte)2;
+						Medico med = new Medico(varNomeFunc.getText(), varCpfFunc.getText(), varRgFunc.getText(), est_civ, varDataAdm.getText(), 
+								varCtps.getText(), varSenha.getText(), varCrm.getText(), varEspecialidades.getText(), planos);
+						JOptionPane.showMessageDialog(null, "Medico "+ varNomeFunc.getText() +" inserido com sucesso");
+					}
+				}
+				if(e.getSource() == btnLimpar) {
+					varNomeFunc.setText("");
+					varCpfFunc.setText("");
+					varRgFunc.setText("");
+					varDataAdm.setText("");
+					varCtps.setText("");
+					varSenha.setText("");
+					varCrm.setText("");
+					varEspecialidades.setText("");
+				}
+				if(e.getSource() == btnSair) { 
+					System.exit(0); 			
 				}
 			}
 		}

@@ -36,7 +36,7 @@ public class ConsultaFuncionario extends JFrame {
 	private JLabel lblSalarioFixo = new JLabel();
 
 	public ConsultaFuncionario() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 365);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -44,7 +44,7 @@ public class ConsultaFuncionario extends JFrame {
 		contentPane.setLayout(null);
 		TrataBotoes tratador = new TrataBotoes();
 		
-		JLabel lblCadastroDeFuncionrio = new JLabel("Buscar Funcion\u00E1rio");
+		JLabel lblCadastroDeFuncionrio = new JLabel("Buscar Funcionário");
 		lblCadastroDeFuncionrio.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCadastroDeFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblCadastroDeFuncionrio.setBounds(114, 11, 215, 32);
@@ -69,6 +69,41 @@ public class ConsultaFuncionario extends JFrame {
 		lblDigiteOCpf.setBounds(10, 57, 97, 20);
 		contentPane.add(lblDigiteOCpf);	
 		
+		// Não encontrado
+		lblRetornoBusca.setBounds(20, 98, 392, 14);
+		contentPane.add(lblRetornoBusca);
+		
+		// Funcionario
+		lblNome.setBounds(10, 98, 392, 14);
+		contentPane.add(lblNome);
+		lblCpf.setBounds(10, 123, 198, 14);
+		contentPane.add(lblCpf);
+		lblrg.setBounds(218, 123, 196, 14);
+		contentPane.add(lblrg);
+		lblEstCiv.setBounds(10, 148, 198, 14);
+		contentPane.add(lblEstCiv);
+		lblDataAdm.setBounds(218, 148, 194, 14);
+		contentPane.add(lblDataAdm);
+		lblCtps.setBounds(10, 173, 198, 14);
+		contentPane.add(lblCtps);
+		lblSenha.setBounds(218, 173, 194, 14);
+		contentPane.add(lblSenha);
+		
+		// Medico
+		lblCrm.setBounds(10, 198, 414, 14);
+		contentPane.add(lblCrm);
+		lblEspecialidades.setBounds(10, 223, 414, 14);
+		contentPane.add(lblEspecialidades);
+		lblSalarioMensal.setBounds(10, 248, 198, 14);
+		contentPane.add(lblSalarioMensal);
+		lblPlanos.setBounds(10, 273, 414, 14);
+		contentPane.add(lblPlanos);
+		
+		// Outros
+		lblCargo.setBounds(10, 198, 198, 14);
+		contentPane.add(lblCargo);
+		lblSalarioFixo.setBounds(218, 198, 194, 14);
+		contentPane.add(lblSalarioFixo);
 	}
 	private class TrataBotoes implements ActionListener{
 
@@ -76,92 +111,45 @@ public class ConsultaFuncionario extends JFrame {
 			if(e.getSource() == btnBuscar) {
 				Funcionario f = DadosFuncionario.buscar(varCpf.getText());
 				if(f == null) {
-					lblCpf.hide();
-					lblrg.hide();
-					lblEstCiv.hide();
-					lblDataAdm.hide();
-					lblCtps.hide();
-					lblSenha.hide();
-					lblCrm.hide();
-					lblEspecialidades.hide();
-					lblSalarioMensal.hide();
-					lblPlanos.hide();
-					lblNome.hide();
-					lblCargo.hide();
-					lblSalarioFixo.hide();
-					lblRetornoBusca.show();
-					lblRetornoBusca.setText("Funcionario não encontrado!"); // não aparece
-					lblRetornoBusca.setBounds(20, 98, 392, 14);
-					contentPane.add(lblRetornoBusca);
+					lblRetornoBusca.setText("Funcionario não encontrado!"); 
+					lblCpf.setText("");
+					lblrg.setText("");
+					lblEstCiv.setText("");
+					lblDataAdm.setText("");
+					lblCtps.setText("");
+					lblSenha.setText("");
+					lblCrm.setText("");
+					lblEspecialidades.setText("");
+					lblSalarioMensal.setText("");
+					lblPlanos.setText("");
+					lblNome.setText("");
+					lblCargo.setText("");
+					lblSalarioFixo.setText("");
+					
 				} else {
-					lblRetornoBusca.hide();
+					lblRetornoBusca.setText("");
 					lblNome.setText("Nome: " + f.getNome_func());
-					lblNome.setBounds(10, 98, 392, 14);
-					contentPane.add(lblNome);
-					
 					lblCpf.setText("Cpf : " + f.getCpf_func());
-					lblCpf.setBounds(10, 123, 198, 14);
-					contentPane.add(lblCpf);
-					
 					lblrg.setText("Rg: " + f.getRg_func());
-					lblrg.setBounds(218, 123, 196, 14);
-					contentPane.add(lblrg);
-					
-					lblEstCiv.setText("Estado civil: " + f.getEst_Civ());
-					lblEstCiv.setBounds(10, 148, 198, 14);
-					contentPane.add(lblEstCiv);
-					
 					lblDataAdm.setText("Data de admissao: " + f.getDat_adm());
-					lblDataAdm.setBounds(218, 148, 194, 14);
-					contentPane.add(lblDataAdm);
-					
+					lblEstCiv.setText("Estado civil: " + f.getEst_Civ());
 					lblCtps.setText("Ctps: " + f.getCtps());
-					lblCtps.setBounds(10, 173, 198, 14);
-					contentPane.add(lblCtps);
-					
 					lblSenha.setText("Senha: " + f.getSenha());
-					lblSenha.setBounds(218, 173, 194, 14);
-					contentPane.add(lblSenha);
-					
 					if(f instanceof Medico) {
-						lblCargo.hide();
-						lblSalarioFixo.hide();
-						
-						lblCrm.show();
+						lblCargo.setText("");
+						lblSalarioFixo.setText("");
 						lblCrm.setText("Crm: " + ((Medico) f).getCrm());
-						lblCrm.setBounds(10, 198, 46, 14);
-						contentPane.add(lblCrm);
-						
-						lblEspecialidades.show();
 						lblEspecialidades.setText("Especialidades: " + ((Medico) f).getEspecialidades());
-						lblEspecialidades.setBounds(10, 223, 414, 14);
-						contentPane.add(lblEspecialidades);
-						
-						lblSalarioMensal.show();
 						lblSalarioMensal.setText("Salario: " + Double.toString(((Medico) f).getSal_mensal()));
-						lblSalarioMensal.setBounds(10, 248, 198, 14);
-						contentPane.add(lblSalarioMensal);
-						
-						lblPlanos.show();
 						lblPlanos.setText("Planos: " + ((Medico) f).getPlanosNro());
-						lblPlanos.setBounds(10, 273, 414, 14);
-						contentPane.add(lblPlanos);
 					}
 					else if(f instanceof Outro_funcionario) {
-						lblCrm.hide();
-						lblEspecialidades.hide();
-						lblSalarioMensal.hide();
-						lblPlanos.hide();
-						
-						lblCargo.show();
+						lblCrm.setText("");
+						lblEspecialidades.setText("");
+						lblSalarioMensal.setText("");
+						lblPlanos.setText("");
 						lblCargo.setText("Cargo: " + ((Outro_funcionario) f).getCargo());
-						lblCargo.setBounds(10, 198, 198, 14);
-						contentPane.add(lblCargo);
-						
-						lblSalarioFixo.show();
 						lblSalarioFixo.setText("Salario Fixo: " + Double.toString(((Outro_funcionario) f).getSal_fixo()));
-						lblSalarioFixo.setBounds(218, 198, 194, 14);
-						contentPane.add(lblSalarioFixo);
 					}
 				}
 			}

@@ -29,10 +29,15 @@ public class ConsultaPaciente extends JFrame {
 	private JLabel txtDataNascimento;
 	private JLabel txtDataCadastro;
 	private JLabel txtUltimaCons;
+	private JLabel txtDataIng;
+	private JLabel txtPerCarencia;
+	private JLabel txtNroCart;
+	private JLabel txtDescEsp;
+	private JLabel txtValPago;
 
 	public ConsultaPaciente() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 346);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -96,6 +101,26 @@ public class ConsultaPaciente extends JFrame {
 		txtUltimaCons = new JLabel("");
 		txtUltimaCons.setBounds(214, 213, 190, 14);
 		contentPane.add(txtUltimaCons);
+		
+		txtDataIng = new JLabel("");
+		txtDataIng.setBounds(24, 238, 190, 14);
+		contentPane.add(txtDataIng);
+		
+		txtPerCarencia = new JLabel("");
+		txtPerCarencia.setBounds(224, 238, 180, 14);
+		contentPane.add(txtPerCarencia);
+		
+		txtNroCart = new JLabel("");
+		txtNroCart.setBounds(24, 263, 380, 14);
+		contentPane.add(txtNroCart);
+		
+		txtDescEsp = new JLabel("");
+		txtDescEsp.setBounds(24, 238, 190, 14);
+		contentPane.add(txtDescEsp);
+		
+		txtValPago = new JLabel("");
+		txtValPago.setBounds(224, 238, 180, 14);
+		contentPane.add(txtValPago);
 
 	}
 	
@@ -114,6 +139,20 @@ public class ConsultaPaciente extends JFrame {
 					txtDataNascimento.setText("Data de Nascimento: " + p.getDat_nas());
 					txtDataCadastro.setText("Data de cadastro: " + formatarData.format(p.getDat_cad()));
 					txtUltimaCons.setText("Ultima consulta: " + p.getUlt_cons());
+					if(p instanceof ComPlano) {
+						txtDescEsp.setText("");
+						txtValPago.setText("");
+						txtDataIng.setText("Data de Ingresso: " + ((ComPlano) p).getData_ing());
+						txtPerCarencia.setText("Período de Carência: " + ((ComPlano)p).getPer_carencia());
+						txtNroCart.setText("Número do Cartão: " + ((ComPlano)p).getNro_cart());
+					}
+					else if(p instanceof SemPlano) {
+						txtDataIng.setText("");
+						txtPerCarencia.setText("");
+						txtNroCart.setText("");
+						txtDescEsp.setText("Desconto Especial: " + ((SemPlano)p).getDes_esp());
+						txtValPago.setText("Valor pago: " + ((SemPlano)p).getVal_pago());
+					}
 					
 				}else {
 					txtPacienteNaoEncontrado.setText("Paciente não encontrado!");
@@ -125,6 +164,11 @@ public class ConsultaPaciente extends JFrame {
 					txtDataNascimento.setText("");
 					txtDataCadastro.setText("");
 					txtUltimaCons.setText("");
+					txtDescEsp.setText("");
+					txtValPago.setText("");
+					txtDataIng.setText("");
+					txtPerCarencia.setText("");
+					txtNroCart.setText("");
 				}
 			}
 			else {

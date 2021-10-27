@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class ComPlano extends Paciente implements Serializable, Interface{
     private String nro_cart;
-    private Date data_ing;
+    private String data_ing;
     private boolean per_carencia;
     
     public void mostrarDados() {
@@ -25,11 +25,11 @@ public class ComPlano extends Paciente implements Serializable, Interface{
         }
     }
 
-    public Date getData_ing() {
+    public String getData_ing() {
         return data_ing;
     }
 
-    public void setData_ing(Date data_ing) {
+    public void setData_ing(String data_ing) {
         this.data_ing = data_ing;
     }
 
@@ -42,8 +42,8 @@ public class ComPlano extends Paciente implements Serializable, Interface{
     }
 
     public ComPlano(String nome_pac, String cpf_pac, String rg_pac, byte est_civ, String sexo, String dat_nas,
-            String ult_cons, String nro_cart, Date data_ing, boolean per_carencia) {
-        super(nome_pac, cpf_pac, rg_pac, est_civ, sexo, dat_nas, ult_cons);
+    		String nro_cart, String data_ing, boolean per_carencia) {
+        super(nome_pac, cpf_pac, rg_pac, est_civ, sexo, dat_nas);
         setNro_cart(nro_cart);
         setData_ing(data_ing);
         setPer_carencia(per_carencia);

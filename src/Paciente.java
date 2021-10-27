@@ -1,5 +1,7 @@
+import java.util.Calendar;
 import java.util.Date;
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public abstract class Paciente implements Interface, Serializable{
@@ -114,15 +116,21 @@ public abstract class Paciente implements Interface, Serializable{
         this.ult_cons = ult_cons;
     }
 
-    public Paciente(String nome_pac, String cpf_pac, String rg_pac, byte est_civ, String sexo, String dat_nas, String ult_cons){
-        this.dat_cad = new Date();
+    public Paciente(String nome_pac, String cpf_pac, String rg_pac, byte est_civ, String sexo, String dat_nas){
+        
+        Date date = new Date();  
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");  
+        String strDate = formatter.format(date);  
+        
+        this.dat_cad = date;
+        this.ult_cons = strDate;
+        
         setCpf_pac(cpf_pac);
         setDat_nas(dat_nas);
         setEst_civ(est_civ);
         setNome_pac(nome_pac);
         setRg_pac(rg_pac);
         setSexo(sexo);
-        setUlt_cons(ult_cons);
     }
 
 }

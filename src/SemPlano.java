@@ -33,8 +33,8 @@ public class SemPlano extends Paciente implements Serializable, Interface{
     }
 
     public SemPlano(String nome_pac, String cpf_pac, String rg_pac, byte est_civ, String sexo, String dat_nas,
-            String ult_cons, boolean desc_esp, double val_pago) {
-        super(nome_pac, cpf_pac, rg_pac, est_civ, sexo, dat_nas, ult_cons);
+            boolean desc_esp, double val_pago) {
+        super(nome_pac, cpf_pac, rg_pac, est_civ, sexo, dat_nas);
         setDesc_esp(desc_esp);
         setVal_pago(val_pago);
     }

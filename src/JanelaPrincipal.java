@@ -109,7 +109,7 @@ public class JanelaPrincipal extends JFrame {
 	private class TrataBotoes implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == cadastrarPaciente) {
-				new CadastroPaciente().setVisible(true);
+				new CadastrarPaciente().setVisible(true);
 			}
 			else if(e.getSource() == consultarPaciente) {
 				new ConsultaPaciente().setVisible(true);
@@ -127,7 +127,7 @@ public class JanelaPrincipal extends JFrame {
 				
 			}
 			else if(e.getSource() == cadastrarFuncionario) {
-				new CadastroFuncionario().setVisible(true);
+				new CadastrarFuncionario().setVisible(true);
 			}
 			else if(e.getSource() == consultarFuncionario) {
 				new ConsultaFuncionario().setVisible(true);

@@ -2,7 +2,7 @@ import java.util.Date;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
-public class Paciente implements Interface, Serializable{
+public abstract class Paciente implements Interface, Serializable{
     private String nome_pac;
     private String cpf_pac;
     private String rg_pac;
@@ -29,16 +29,9 @@ public class Paciente implements Interface, Serializable{
 
     public void mostrarDados(){
         SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.println("=============================");
-        System.out.println("Nome: " + getNome_pac());
-        System.out.println("Cpf: " + ValidaCpf.imprimeCPF(getCpf_pac()));
-        System.out.println("Rg: " + getRg_pac());
-        System.out.println("Estado Civil: " + getEst_civ());
-        System.out.println("Sexo: " + getSexo());
-        System.out.println("Data de Nascimento: " + getDat_nas());
-        System.out.println("Data de cadastro: " + formatarData.format(getDat_cad()));
-        System.out.println("Ultima consulta: " + getUlt_cons());
-        System.out.println("=============================");
+        System.out.println("Nome: " + getNome_pac() + "\nCpf: " + ValidaCpf.imprimeCPF(getCpf_pac()) + "\nRg: " + getRg_pac()
+        		+ "\nEstado Civil: " + getEst_civ() + "\nSexo: " + getSexo() + "\nData de Nascimento: " + getDat_nas()
+        		+ "\nData de cadastro: " + formatarData.format(getDat_cad()) + "\nUltima consulta: " + getUlt_cons() + "\n");
     }
 
     public String getCpf_pac() {

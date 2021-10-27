@@ -15,6 +15,7 @@ public abstract class Funcionario implements Interface, Serializable{
 
     Funcionario(String cpf){ 
         setCpf_func(cpf);
+        setLogin(cpf);
     }
 
     Funcionario(String nome_func, String cpf_func, String rg_func, byte est_civ, String dat_adm, String ctps, String senha){
@@ -25,19 +26,17 @@ public abstract class Funcionario implements Interface, Serializable{
         setDat_adm(dat_adm);
         setCtps(ctps);
         cadastro(senha);
+        setLogin(cpf_func);
     }
 
     public abstract void calculaSalario();
 
     public abstract void cadastro(String s); // cadastro do login e senha, para medicos login será crm, para outro_funcionario o cpf
 
-    public void mostrarDados(){
-        System.out.println("Nome: " + this.getNome_func());
-        System.out.println("Cpf: " + ValidaCpf.imprimeCPF(this.getCpf_func()) );
-        System.out.println("Rg: " + this.getRg_func());
-        System.out.println("Estado Civil: " + this.getEst_Civ());
-        System.out.println("Ctps: " + this.getCtps());
-        System.out.println("Data de Admissão: " + this.getDat_adm());
+    public void mostrarDados(){        
+        System.out.println("Nome: " + this.getNome_func() + "\n" + "Cpf: " + ValidaCpf.imprimeCPF(this.getCpf_func()) + "\n" +
+        		"Rg: " + this.getRg_func() + "\n" + "Estado Civil: " + this.getEst_Civ() + "\n" + "Ctps: " + this.getCtps()
+        		+ "\n" + "Data de Admiss�o: " + this.getDat_adm() + "\n");
     }
 
     public String getNome_func() {
@@ -107,13 +106,8 @@ public abstract class Funcionario implements Interface, Serializable{
     public String getLogin() {
         return login;
     }
-    public boolean setLogin(String login) {
-        if(login.length()>0){
-            this.login = login;
-            return true;
-        } else {
-            return false;
-        }
+    public void setLogin(String login) {
+    	this.login = login;
     }
     public String getSenha() {
         return senha;

@@ -31,10 +31,4 @@ public class Plano implements Serializable{
             return false;
         }
     }
-
-	public String mostrarDados() {
-		// TODO Auto-generated method stub
-		return ("Nome: " + getNome_plano() + "\nCnpj: " + getCnpj() + "\n");
-	}
-
 }

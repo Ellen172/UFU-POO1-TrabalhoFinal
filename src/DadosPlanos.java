@@ -13,15 +13,6 @@ public class DadosPlanos implements Serializable{
         System.out.println("Cadastrado!");
     }
 
-    public static String listar(){
-        String str="";
-    	for( Plano objeto: DadosPlanos.vetPlano) {
-            //objeto.mostrarDados();
-            str.concat(objeto.mostrarDados());
-        }
-    	return str;
-    }
-
     public static Plano buscar(String nome_plano){
         Plano p = null;
         for ( Plano objeto : DadosPlanos.vetPlano) {

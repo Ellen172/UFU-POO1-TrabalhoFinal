@@ -7,21 +7,24 @@ public class Outro_funcionario extends Funcionario implements Serializable{
     private static double gratificacao = 80;
     private int total_cons;
 
-    public Outro_funcionario(String c, double s, String cp){
-        super(cp);
-        setCargo(c); 
-        setSal_fixo(s);
+    public Outro_funcionario(String cargo, double sal_fixo, String cpf){
+        super(cpf);
+        setCargo(cargo); 
+        setSal_fixo(sal_fixo);
+    }
+    
+    public Outro_funcionario(String cargo, double sal_fixo, String nome_func, String cpf_func, 
+    		String rg_func, byte est_civ, String dat_adm, String ctps, String senha){
+        super(nome_func, cpf_func, rg_func, est_civ, dat_adm, ctps, senha);
+        setCargo(cargo); 
+        setSal_fixo(sal_fixo);
     }
 
     public void mostrarDados() {
         super.mostrarDados();
         this.calculaSalario();
-        System.out.println("=============================");
-        System.out.println("Cargo: " + this.getCargo());
-        System.out.println("Sal√°rio Fixo: " + this.getSal_fixo());
-        System.out.println("Gratifica√ß√£o: : " + getGratificacao());
-        System.out.println("Total de Consultas: " + this.getTotal_cons());
-        System.out.println("=============================");
+        System.out.println("Cargo: " + this.getCargo() + "\nSal·rio Fixo: " + this.getSal_fixo() + "\nGratificaÁ„o: " + getGratificacao() 
+        		+ "\nTotal de Consultas: " + this.getTotal_cons() + "\n");
     }
     
     public String getCargo() {

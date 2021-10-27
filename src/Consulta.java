@@ -126,14 +126,8 @@ public class Consulta implements Interface, Serializable{
     }
 
     public void mostrarDados(){
-        System.out.println("=============================");
-        System.out.println("Data: " + this.getData());
-        System.out.println("Horario: " + this.getHorario());
-        System.out.println("Medicamento: " + this.getMedicamento());
-        System.out.println("ObservaÃ§Ã£o Geral: " + this.getObs_geral());
-        System.out.println("Receita: " + this.getReceita());
-        System.out.println("Valor: " + this.getVal_cons());
-        System.out.println("=============================");
+    	System.out.println("Data: " + this.getData() + "\nHorario: " + this.getHorario() + "\nMedicamento: " + this.getMedicamento() 
+    			+ "\nObservação geral: " + this.getObs_geral() + "\nReceita: " + this.getReceita() + "\nValor: " + this.getVal_cons());
     }
 }
 

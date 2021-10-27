@@ -264,7 +264,8 @@ public class CadastroFuncionario extends JFrame {
 			}
 			
 			if(e.getSource() == btnOutros) {
-				setBounds(100, 100, 503, 350); 
+				setBounds(100, 100, 503, 350);
+				BotaoOutros trataOutros = new BotaoOutros();
 				
 				lblCrm.hide();
 				varCrm.hide();
@@ -285,6 +286,7 @@ public class CadastroFuncionario extends JFrame {
 				varSalario.setBounds(349, 237, 125, 20);
 				contentPane.add(varSalario);
 				varSalario.setColumns(10);
+				varSalario.setText("xxx.xx");
 				
 				varCargo.show();
 				varCargo.setModel(new DefaultComboBoxModel(new String[] {"Recepção", "Limpeza", "Auxiliar"}));
@@ -293,12 +295,16 @@ public class CadastroFuncionario extends JFrame {
 				
 				btnSair.setBounds(92, 280, 89, 23);
 				contentPane.add(btnSair);
+				btnSair.addActionListener(trataOutros);
 				
 				btnEnviar.setBounds(308, 280, 89, 23);
 				contentPane.add(btnEnviar);
-				
+				btnEnviar.addActionListener(trataOutros);
+
 				btnLimpar.setBounds(199, 280, 89, 23);
 				contentPane.add(btnLimpar);
+				btnLimpar.addActionListener(trataOutros);
+
 			}
 		}
 		
@@ -318,7 +324,16 @@ public class CadastroFuncionario extends JFrame {
 						else est_civ = (byte)2;
 						Medico med = new Medico(varNomeFunc.getText(), varCpfFunc.getText(), varRgFunc.getText(), est_civ, varDataAdm.getText(), 
 								varCtps.getText(), varSenha.getText(), varCrm.getText(), varEspecialidades.getText(), planos);
+						DadosFuncionario.cadastrar(med);
 						JOptionPane.showMessageDialog(null, "Medico "+ varNomeFunc.getText() +" inserido com sucesso");
+						varNomeFunc.setText("");
+						varCpfFunc.setText("");
+						varRgFunc.setText("");
+						varDataAdm.setText("");
+						varCtps.setText("");
+						varSenha.setText("");
+						varCrm.setText("");
+						varEspecialidades.setText("");
 					}
 				}
 				if(e.getSource() == btnLimpar) {
@@ -330,6 +345,49 @@ public class CadastroFuncionario extends JFrame {
 					varSenha.setText("");
 					varCrm.setText("");
 					varEspecialidades.setText("");
+				}
+				if(e.getSource() == btnSair) { 
+					System.exit(0); 			
+				}
+			}
+		}
+		
+		private class BotaoOutros implements ActionListener {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == btnEnviar) {
+					if(varNomeFunc.getText().isEmpty() || varCpfFunc.getText().isEmpty() || varRgFunc.getText().isEmpty() || 
+						varDataAdm.getText().isEmpty() || varCtps.getText().isEmpty() || varSenha.getText().isEmpty() || 
+						varSalario.getText().isEmpty()) {
+						   JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+					} else {
+						byte est_civ;
+						if(varSolteiro.isSelected())
+							est_civ = (byte)0;
+						if(varCasado.isSelected())
+							est_civ = (byte)1;
+						else est_civ = (byte)2;
+						Outro_funcionario func = new Outro_funcionario((String)varCargo.getItemAt(varCargo.getSelectedIndex()),  
+								Double.parseDouble(varSalario.getText()), varNomeFunc.getText(), varCpfFunc.getText(), varRgFunc.getText(), 
+								est_civ, varDataAdm.getText(), varCtps.getText(), varSenha.getText());
+						DadosFuncionario.cadastrar(func);
+						JOptionPane.showMessageDialog(null, "Funcionário "+ varNomeFunc.getText() +" inserido com sucesso");
+						varSalario.setText(""); 
+						varNomeFunc.setText(""); 
+						varCpfFunc.setText(""); 
+						varRgFunc.setText(""); 
+						varDataAdm.setText(""); 
+						varCtps.setText(""); 
+						varSenha.setText("");
+					}
+				}
+				if(e.getSource() == btnLimpar) {
+					varSalario.setText(""); 
+					varNomeFunc.setText(""); 
+					varCpfFunc.setText(""); 
+					varRgFunc.setText(""); 
+					varDataAdm.setText(""); 
+					varCtps.setText(""); 
+					varSenha.setText("");
 				}
 				if(e.getSource() == btnSair) { 
 					System.exit(0); 			

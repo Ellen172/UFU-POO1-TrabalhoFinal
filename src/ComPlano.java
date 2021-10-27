@@ -1,10 +1,16 @@
 import java.io.Serializable;
 import java.util.Date;
 
-public class ComPlano extends Paciente implements Serializable{
+public class ComPlano extends Paciente implements Serializable, Interface{
     private String nro_cart;
     private Date data_ing;
     private boolean per_carencia;
+    
+    public void mostrarDados() {
+    	super.mostrarDados();
+    	System.out.println("Numero do cartao: " + this.getNro_cart() + "\nData de ingresso: " + this.getData_ing() + 
+    						"\nPeriodo de Carência: " + this.per_carencia + "\n");
+    }
 
     public String getNro_cart() {
         return nro_cart;

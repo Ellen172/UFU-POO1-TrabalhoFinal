@@ -1,8 +1,13 @@
 import java.io.Serializable;
 
-public class SemPlano extends Paciente implements Serializable{
+public class SemPlano extends Paciente implements Serializable, Interface{
     private boolean desc_esp;
     private double val_pago;
+    
+    public void mostraDados() {
+    	super.mostrarDados();
+    	System.out.println("Desconto especial: " + this.getDes_esp() + "\nValor Pago: " + this.getVal_pago() + "\n");
+    }
 
     public double getVal_pago() {
         return val_pago;

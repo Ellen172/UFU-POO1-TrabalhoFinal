@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JCheckBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextArea;
@@ -14,6 +15,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class EfetuarConsulta extends JFrame {
 
@@ -24,69 +27,51 @@ public class EfetuarConsulta extends JFrame {
     private JTextField varReceita;
     private JTextField varObsGeral;
     private JTextField varValor;
+    private JButton botaoEnviar;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                	EfetuarConsulta frame = new EfetuarConsulta();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    /**
-     * Create the frame.
-     */
     public EfetuarConsulta() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setBounds(100, 100, 450, 260);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
         
-        JLabel lblNewLabel = new JLabel("Efetua\u00E7\u00E3o Consulta");
-        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-        lblNewLabel.setBounds(119, 11, 230, 29);
-        contentPane.add(lblNewLabel);
+        JLabel lblTitle = new JLabel("Efetua\u00E7\u00E3o Consulta");
+        lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTitle.setFont(new Font("Tahoma", Font.BOLD, 18));
+        lblTitle.setBounds(119, 11, 230, 29);
+        contentPane.add(lblTitle);
         
-        JLabel lblNewLabel_3 = new JLabel("Medicamentos:");
-        lblNewLabel_3.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_3.setBounds(20, 76, 103, 14);
-        contentPane.add(lblNewLabel_3);
+        JLabel lblMedicamentos = new JLabel("Medicamentos:");
+        lblMedicamentos.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblMedicamentos.setBounds(20, 76, 103, 14);
+        contentPane.add(lblMedicamentos);
         
-        JLabel lblNewLabel_3_1 = new JLabel("Data:");
-        lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_3_1.setBounds(245, 51, 37, 14);
-        contentPane.add(lblNewLabel_3_1);
+        JLabel lblData = new JLabel("Data:");
+        lblData.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblData.setBounds(245, 51, 37, 14);
+        contentPane.add(lblData);
         
-        JLabel lblNewLabel_3_2 = new JLabel("Receita:");
-        lblNewLabel_3_2.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_3_2.setBounds(55, 102, 68, 14);
-        contentPane.add(lblNewLabel_3_2);
+        JLabel lblReceita = new JLabel("Receita:");
+        lblReceita.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblReceita.setBounds(55, 102, 68, 14);
+        contentPane.add(lblReceita);
         
-        JLabel lblNewLabel_3_2_1 = new JLabel("Hor\u00E1rio:");
-        lblNewLabel_3_2_1.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_3_2_1.setBounds(55, 51, 64, 14);
-        contentPane.add(lblNewLabel_3_2_1);
+        JLabel lblHorario = new JLabel("Hor\u00E1rio:");
+        lblHorario.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblHorario.setBounds(55, 51, 64, 14);
+        contentPane.add(lblHorario);
         
-        JLabel lblNewLabel_3_2_2 = new JLabel("Observa\u00E7\u00E3o Geral:");
-        lblNewLabel_3_2_2.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_3_2_2.setBounds(10, 127, 113, 14);
-        contentPane.add(lblNewLabel_3_2_2);
+        JLabel lblObsGeral = new JLabel("Observa\u00E7\u00E3o Geral:");
+        lblObsGeral.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblObsGeral.setBounds(10, 127, 113, 14);
+        contentPane.add(lblObsGeral);
         
-        JLabel lblNewLabel_3_2_2_1 = new JLabel("Valor:");
-        lblNewLabel_3_2_2_1.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_3_2_2_1.setBounds(69, 152, 54, 14);
-        contentPane.add(lblNewLabel_3_2_2_1);
+        JLabel lblValor = new JLabel("Valor:");
+        lblValor.setHorizontalAlignment(SwingConstants.TRAILING);
+        lblValor.setBounds(69, 152, 54, 14);
+        contentPane.add(lblValor);
         
         varHorario = new JTextField();
         varHorario.setBounds(129, 48, 106, 20);
@@ -118,8 +103,25 @@ public class EfetuarConsulta extends JFrame {
         contentPane.add(varValor);
         varValor.setColumns(10);
         
-        JButton botaoEnviar = new JButton("Enviar");
-        botaoEnviar.setBounds(180, 199, 89, 23);
+        botaoEnviar = new JButton("Enviar");
+        botaoEnviar.setBounds(168, 187, 89, 23);
         contentPane.add(botaoEnviar);
+    }
+    
+    private class TrataBotoes implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() ==  botaoEnviar) {
+				Consulta cons = DadosConsulta.buscar(varData.getText(), varHorario.getText());
+				if(cons == null) {
+					JOptionPane.showMessageDialog(null, "Consulta não localizada");
+				} else {
+					cons.realizarConsulta(varMedicamentos.getText(), varObsGeral.getText(), varReceita.getText(), 
+							Double.parseDouble(varValor.getText()));
+					JOptionPane.showMessageDialog(null, "Consulta efetuada");
+				}
+			}
+		}
+    	
     }
 }

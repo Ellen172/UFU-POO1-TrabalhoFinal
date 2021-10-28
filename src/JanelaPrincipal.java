@@ -133,7 +133,7 @@ public class JanelaPrincipal extends JFrame {
 				new ConsultaFuncionario().setVisible(true);
 			}
 			else if(e.getSource() == removerFuncionario) {
-				
+				new RemoveFuncionario().setVisible(true);
 			}
 			else if(e.getSource() == cadastrarPlano) {
 				new CadastrarPlanos().setVisible(true);

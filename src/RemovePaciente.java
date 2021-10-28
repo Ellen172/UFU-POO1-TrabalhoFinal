@@ -22,7 +22,7 @@ public class RemovePaciente extends JFrame {
 
 	public RemovePaciente() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 150);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -47,7 +47,7 @@ public class RemovePaciente extends JFrame {
 		
 		txtPacienteRemovido = new JLabel("");
 		txtPacienteRemovido.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPacienteRemovido.setBounds(128, 103, 187, 14);
+		txtPacienteRemovido.setBounds(128, 86, 187, 14);
 		contentPane.add(txtPacienteRemovido);
 		
 		botaoRemover = new JButton("Remover");

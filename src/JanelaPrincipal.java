@@ -121,7 +121,7 @@ public class JanelaPrincipal extends JFrame {
 				new CadastrarConsulta().setVisible(true);
 			} 
 			else if(e.getSource() == consultarConsulta) {
-				
+				new ConsultarConsulta().setVisible(true);
 			}
 			else if(e.getSource() == removerConsulta) {
 				

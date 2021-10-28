@@ -10,16 +10,40 @@ public class Consulta implements Interface, Serializable{
     private String obs_geral;
     private String receita;
     private double val_cons;
-    Medico med; 
-    Paciente pac;
-    Outro_funcionario outro_func;
+    private Medico med; 
+    private Paciente pac;
+    private Outro_funcionario outro_func;
 
-    public Consulta(Medico med, Paciente pac, Outro_funcionario outro_func, String data, String Horario){
-    	this.med = med;
-    	this.pac = pac; 
-    	this.outro_func = outro_func;
+    public Medico getMed() {
+		return med;
+	}
+
+	public void setMed(Medico med) {
+		this.med = med;
+	}
+
+	public Paciente getPac() {
+		return pac;
+	}
+
+	public void setPac(Paciente pac) {
+		this.pac = pac;
+	}
+
+	public Outro_funcionario getOutro_func() {
+		return outro_func;
+	}
+
+	public void setOutro_func(Outro_funcionario outro_func) {
+		this.outro_func = outro_func;
+	}
+
+	public Consulta(Medico med, Paciente pac, Outro_funcionario outro_func, String data, String Horario){
     	setData(data);
         setHorario(Horario);
+        setMed(med);
+        setOutro_func(outro_func);
+        setPac(pac);
     }
 
     public Consulta(String nome_exame) {

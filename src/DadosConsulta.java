@@ -2,26 +2,26 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class DadosConsulta implements Serializable {
-    private ArrayList<Consulta> vetCons = new ArrayList<Consulta>();
+    private static ArrayList<Consulta> vetCons = new ArrayList<Consulta>();
 
-    public ArrayList<Consulta> getVetCons(){
-        return this.vetCons;
+    public static ArrayList<Consulta> getVetCons(){
+        return DadosConsulta.vetCons;
     }
 
-    public void cadastrar (Consulta c){
-        this.vetCons.add(c);
+    public static void cadastrar (Consulta c){
+    	DadosConsulta.vetCons.add(c);
         System.out.println("Cadastrado!");
     }
 
-    public void listar(){
-        for(Consulta obj : this.vetCons){
+    public static void listar(){
+        for(Consulta obj : DadosConsulta.vetCons){
             obj.mostrarDados();;
         }
     }
 
-    public Consulta buscar(String data, String horario){
+    public static Consulta buscar(String data, String horario){
         Consulta c = null;
-        for(Consulta obj : this.vetCons){
+        for(Consulta obj : DadosConsulta.vetCons){
             if(obj.getData().equals(data) && obj.getHorario().equals(horario)){
                 c = obj;
                 break;
@@ -30,10 +30,10 @@ public class DadosConsulta implements Serializable {
         return c;
     }
 
-    public boolean excluir(String data, String horario){
-        Consulta c = this.buscar(data, horario);
+    public static boolean excluir(String data, String horario){
+        Consulta c = DadosConsulta.buscar(data, horario);
         if(c != null){
-            this.vetCons.remove(c);
+        	DadosConsulta.vetCons.remove(c);
             return true;
         }else{
             return false;

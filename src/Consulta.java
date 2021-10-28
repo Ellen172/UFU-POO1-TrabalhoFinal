@@ -10,18 +10,16 @@ public class Consulta implements Interface, Serializable{
     private String obs_geral;
     private String receita;
     private double val_cons;
+    Medico med; 
+    Paciente pac;
+    Outro_funcionario outro_func;
 
-    public Consulta(Medico m, Paciente p){
-        
-    }
-
-    public Consulta(Medico m, Paciente p, String d, String h, String med, String obs, String r, double val){
-        setData(d);
-        setHorario(h);
-        setMedicamento(med);
-        setObs_geral(obs);
-        setReceita(r);
-        setVal_cons(val);
+    public Consulta(Medico med, Paciente pac, Outro_funcionario outro_func, String data, String Horario){
+    	this.med = med;
+    	this.pac = pac; 
+    	this.outro_func = outro_func;
+    	setData(data);
+        setHorario(Horario);
     }
 
     public Consulta(String nome_exame) {
@@ -107,7 +105,7 @@ public class Consulta implements Interface, Serializable{
         }
     }
 
-    public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons, Medico med, Outro_funcionario func, Paciente pac){
+    public void realizarConsulta(String medicamento, String obs_geral, String receita, double val_cons){
         Date data = new Date();
         SimpleDateFormat formatarHora = new SimpleDateFormat("HH:mm:ss");
         SimpleDateFormat formatarData = new SimpleDateFormat("dd/MM/yyyy");
@@ -119,9 +117,9 @@ public class Consulta implements Interface, Serializable{
         setReceita(receita);
         setVal_cons(val_cons);
 
-        med.incrementaNroCons();
-        med.setSomaConsultaMes(med.getSomaConsultaMes() + getVal_cons());
-        func.setTotal_cons(func.getTotal_cons() + 1);
+        this.med.incrementaNroCons();
+        this.med.setSomaConsultaMes(this.med.getSomaConsultaMes() + getVal_cons());
+        this.outro_func.setTotal_cons(this.outro_func.getTotal_cons() + 1);
         pac.setUlt_cons(formatarData.format(data));
     }
 
